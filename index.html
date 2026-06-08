@@ -18,9 +18,14 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a href="#uvod" class="logo" aria-label="Miloš Bušek">
+
+    <a href="#uvod" class="logo">
       <img src="images/logo-horizontal.png" alt="Miloš Bušek logo">
     </a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Otevřít menu">
+      ☰
+    </button>
 
     <nav class="nav" id="nav">
       <a href="#uvod" class="active">Úvod</a>
@@ -30,21 +35,25 @@
       <a href="#kontakt">Kontakt</a>
     </nav>
 
-    <a href="#poptavka" class="header-cta">Poptat nabídku <span>→</span></a>
+    <a href="#poptavka" class="header-cta">
+      Poptat nabídku <span>→</span>
+    </a>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Otevřít menu">
-      ☰
-    </button>
   </div>
 </header>
 
 <main id="uvod">
 
 <section class="hero">
+  <div class="hero-bg"></div>
+
   <div class="container hero-grid">
 
-    <div class="hero-copy reveal">
-      <h1>S námi<br><span>budete vidět.</span></h1>
+    <div class="hero-copy">
+      <h1>
+        S námi<br>
+        <span>budete vidět.</span>
+      </h1>
 
       <p>
         Pomáhám firmám získat pozornost, budovat důvěru
@@ -58,12 +67,12 @@
         <li><span>✓</span> Plzeňský kraj a celá ČR</li>
       </ul>
 
-      <a href="#poptavka" class="btn btn-main">
+      <a href="#poptavka" class="btn btn-gradient">
         Chci nezávaznou nabídku <span>→</span>
       </a>
     </div>
 
-    <div class="hero-visual reveal">
+    <div class="hero-visual">
       <img src="images/hero-van.png" alt="Polep dodávky Miloš Bušek">
     </div>
 
@@ -74,122 +83,98 @@
   <div class="container problem-grid">
 
     <article>
-      <div class="circle teal">◎</div>
-      <div>
-        <strong>Bez viditelnosti</strong>
-        <p>firma ztrácí zakázky</p>
-      </div>
+      <div class="icon teal">◎</div>
+      <strong>Bez viditelnosti</strong>
+      <p>firma ztrácí zakázky</p>
     </article>
 
     <article>
-      <div class="circle blue">♙</div>
-      <div>
-        <strong>Zákazníci vás</strong>
-        <p>nevidí</p>
-      </div>
+      <div class="icon blue">♙</div>
+      <strong>Zákazníci vás</strong>
+      <p>nevidí</p>
     </article>
 
     <article>
-      <div class="circle purple">⌂</div>
-      <div>
-        <strong>Provozovna</strong>
-        <p>splývá s okolím</p>
-      </div>
+      <div class="icon purple">⌂</div>
+      <strong>Provozovna</strong>
+      <p>splývá s okolím</p>
     </article>
 
     <article>
-      <div class="circle lime">▭</div>
-      <div>
-        <strong>Auto</strong>
-        <p>nepracuje</p>
-      </div>
+      <div class="icon lime">▭</div>
+      <strong>Auto</strong>
+      <p>nepracuje</p>
     </article>
 
     <article>
-      <div class="circle violet">◇</div>
-      <div>
-        <strong>Značka není</strong>
-        <p>zapamatovatelná</p>
-      </div>
+      <div class="icon violet">◇</div>
+      <strong>Značka není</strong>
+      <p>zapamatovatelná</p>
     </article>
 
     <article>
-      <div class="circle beige">☹</div>
-      <div>
-        <strong>Nedostatečná</strong>
-        <p>prezentace</p>
-      </div>
+      <div class="icon beige">☹</div>
+      <strong>Nedostatečná</strong>
+      <p>prezentace</p>
     </article>
 
   </div>
 </section>
+
 <section class="services" id="sluzby">
   <div class="container">
 
     <h2>
-      Kompletní <span>reklamní servis</span><br>
-      pro vaši firmu
+      Kompletní <span>reklamní servis</span> pro vaši firmu
     </h2>
 
     <div class="services-grid">
 
-      <article class="reveal">
+      <article>
+        <div class="service-icon teal">✂</div>
         <img src="images/card-identity.png" alt="Firemní identita">
         <h3>Firemní identita</h3>
-        <p>
-          Logo, vizitky, letáky, katalogy a grafický styl.
-          Aby vaše firma působila profesionálně.
-        </p>
+        <p>Logo, vizitky, letáky, katalogy a grafický styl. Aby vaše firma působila profesionálně.</p>
         <a href="#poptavka">Více →</a>
       </article>
 
-      <article class="reveal">
+      <article>
+        <div class="service-icon lime">▣</div>
         <img src="images/card-signage.png" alt="Reklamní značení">
         <h3>Reklamní značení</h3>
-        <p>
-          Cedule, bannery, výlohy a orientační systémy,
-          díky kterým vás zákazníci snadno najdou.
-        </p>
+        <p>Výlohy, cedule, bannery a orientační systémy. Aby vás zákazníci našli na první pohled.</p>
         <a href="#poptavka">Více →</a>
       </article>
 
-      <article class="reveal">
+      <article>
+        <div class="service-icon blue">▭</div>
         <img src="images/card-car.png" alt="Polepy vozidel">
         <h3>Polepy vozidel</h3>
-        <p>
-          Reklama, která pracuje 24 hodin denně.
-          Dodávky, auta i celé vozové parky.
-        </p>
+        <p>Design a realizace polepů aut, dodávek i flotil. Reklama, která pracuje 24/7.</p>
         <a href="#poptavka">Více →</a>
       </article>
 
-      <article class="reveal">
+      <article>
+        <div class="service-icon purple">◎</div>
         <img src="images/card-photo.png" alt="Produktová fotografie">
         <h3>Produktová fotografie</h3>
-        <p>
-          Fotografie produktů, provozoven a služeb,
-          které prodávají na první pohled.
-        </p>
+        <p>Fotografie produktů, služeb a provozoven, aby vaše nabídka prodávala na první pohled.</p>
         <a href="#poptavka">Více →</a>
       </article>
 
-      <article class="reveal">
+      <article>
+        <div class="service-icon teal">▤</div>
         <img src="images/card-print.png" alt="Tisk a výroba">
         <h3>Tisk a výroba</h3>
-        <p>
-          Samolepky, tiskoviny, bannery a reklamní
-          materiály od návrhu až po realizaci.
-        </p>
+        <p>Samolepky, tiskoviny, reklamní předměty, velkoformát a další. Vše od návrhu po hotový produkt.</p>
         <a href="#poptavka">Více →</a>
       </article>
 
-      <article class="reveal">
+      <article>
+        <div class="service-icon lime">✦</div>
         <img src="images/card-gifts.png" alt="Reklamní dárky">
         <h3>Reklamní dárky</h3>
-        <p>
-          Praktické reklamní předměty s vaším logem,
-          které podporují značku.
-        </p>
+        <p>Praktické reklamní předměty s vaším logem. Malé detaily, které budují značku.</p>
         <a href="#poptavka">Více →</a>
       </article>
 
@@ -198,214 +183,104 @@
 </section>
 
 <section class="process">
-
   <div class="container process-grid">
 
     <div class="process-title">
       <h2>Jak spolupráce probíhá</h2>
-
-      <p>
-        Jednoduše, rychle a bez zbytečných komplikací.
-      </p>
+      <p>Jednoduše a bez zbytečných složitostí.</p>
     </div>
 
     <ol>
-
-      <li>
-        <b>01</b>
-        <span>
-          Řeknete mi, co potřebujete nebo jaký máte cíl.
-        </span>
-      </li>
-
-      <li>
-        <b>02</b>
-        <span>
-          Navrhnu nejlepší řešení.
-        </span>
-      </li>
-
-      <li>
-        <b>03</b>
-        <span>
-          Připravím grafický návrh a vizualizaci.
-        </span>
-      </li>
-
-      <li>
-        <b>04</b>
-        <span>
-          Vyrobím nebo zajistím tisk.
-        </span>
-      </li>
-
-      <li>
-        <b>05</b>
-        <span>
-          Předám hotovou zakázku nebo provedu instalaci.
-        </span>
-      </li>
-
+      <li><b>01</b><span>Řeknete mi, co potřebujete nebo jaký máte cíl</span></li>
+      <li><b>02</b><span>Navrhnu řešení</span></li>
+      <li><b>03</b><span>Připravím grafiku a vizuál</span></li>
+      <li><b>04</b><span>Vyrobím nebo zajistím tisk</span></li>
+      <li><b>05</b><span>Předám nebo nainstaluji</span></li>
     </ol>
 
   </div>
-
 </section>
-<section class="realizations" id="realizace">
 
+<section class="realizations" id="realizace">
   <div class="container realization-grid">
 
     <div class="real-title">
-      <h2>
-        Realizace,<br>
-        které mluví za vše
-      </h2>
-
-      <a href="#poptavka" class="btn btn-small">
-        Zobrazit další realizace
-      </a>
+      <h2>Realizace,<br>které mluví za vše</h2>
+      <a href="#poptavka" class="btn btn-gradient">Zobrazit další realizace</a>
     </div>
 
-    <div class="real-card reveal">
+    <article class="real-card">
       <img src="images/ref-van.png" alt="Polep vozidla">
       <p>Polep vozidla pro stavební firmu</p>
-    </div>
+    </article>
 
-    <div class="real-card reveal">
+    <article class="real-card">
       <img src="images/ref-sign.png" alt="Označení provozovny">
       <p>Označení provozovny pro účetní kancelář</p>
-    </div>
+    </article>
 
-    <div class="real-card reveal">
-      <img src="images/ref-banner.png" alt="Banner">
+    <article class="real-card">
+      <img src="images/ref-banner.png" alt="Reklamní banner">
       <p>Reklamní banner pro pneuservis</p>
-    </div>
+    </article>
 
-    <div class="real-card reveal">
+    <article class="real-card">
       <img src="images/ref-products.png" alt="Produktová fotografie">
       <p>Produktová fotografie pro e-shop</p>
-    </div>
+    </article>
 
-    <div class="real-card reveal">
-      <img src="images/ref-flyers.png" alt="Letáky">
+    <article class="real-card">
+      <img src="images/ref-flyers.png" alt="Tisk letáků">
       <p>Tisk letáků pro restauraci</p>
-    </div>
+    </article>
 
   </div>
-
 </section>
 
 <section class="trust" id="omne">
+  <div class="container trust-grid">
 
-  <div class="container">
-
-    <h2>Proč spolupracovat právě se mnou?</h2>
-
-    <div class="trust-grid">
-
-      <article>
-        <span>✓</span>
-        <strong>Více než 20 let zkušeností</strong>
-      </article>
-
-      <article>
-        <span>✦</span>
-        <strong>Grafika, fotografie a výroba pod jednou střechou</strong>
-      </article>
-
-      <article>
-        <span>⚙</span>
-        <strong>Vlastní technologie a kvalitní materiály</strong>
-      </article>
-
-      <article>
-        <span>◎</span>
-        <strong>Osobní přístup – jednáte přímo se mnou</strong>
-      </article>
-
-      <article>
-        <span>✓</span>
-        <strong>Spolehlivost a dodržení termínů</strong>
-      </article>
-
-    </div>
+    <article><span>✓</span><strong>Více než 20 let zkušeností</strong></article>
+    <article><span>✦</span><strong>Grafika, fotografie a výroba pod jednou střechou</strong></article>
+    <article><span>⚙</span><strong>Vlastní technologie a kvalitní materiály</strong></article>
+    <article><span>◎</span><strong>Osobní přístup – jednáte přímo se mnou</strong></article>
+    <article><span>✓</span><strong>Spolehlivost a dodržení termínů</strong></article>
 
   </div>
-
-</section>
-
-<section class="applications">
-
-  <div class="container">
-
-    <h2>Aplikace značky</h2>
-
-    <div class="applications-image reveal">
-      <img src="images/applications.png"
-           alt="Ukázky aplikace značky Miloš Bušek">
-    </div>
-
-  </div>
-
 </section>
 
 <section class="final-cta" id="kontakt">
-
   <div class="container final-grid">
 
-    <div class="final-copy">
-
-      <h2>
-        Chcete <span>být vidět?</span>
-      </h2>
-
-      <p>
-        Napište mi, co potřebujete označit,
-        vytisknout nebo propagovat.
-        Připravím řešení na míru.
-      </p>
-
+    <div>
+      <h2>Chcete <span>být vidět?</span></h2>
+      <p>Napište mi, co potřebujete označit, vytisknout nebo propagovat.</p>
     </div>
 
     <div class="contact-info">
-
-      <a href="tel:+420728551668">
-        +420 728 551 668
-      </a>
-
-      <a href="mailto:reklama@milosbusek.cz">
-        reklama@milosbusek.cz
-      </a>
-
+      <a href="tel:+420728551668">728 551 668</a>
+      <a href="mailto:reklama@milosbusek.cz">reklama@milosbusek.cz</a>
     </div>
 
-    <a href="#poptavka" class="btn btn-main">
-      Poptat nabídku →
-    </a>
+    <a href="#poptavka" class="btn btn-gradient">Poptat nabídku →</a>
 
   </div>
-
 </section>
+
 <section class="quote-form" id="poptavka">
   <div class="container form-grid">
 
     <div>
       <h2>Nezávazná poptávka</h2>
-      <p>
-        Pošlete mi pár informací o zakázce a ozvu se vám
-        s návrhem řešení.
-      </p>
+      <p>Pošlete mi pár informací a ozvu se vám zpět co nejdříve.</p>
     </div>
 
     <form action="mailto:reklama@milosbusek.cz" method="post" enctype="text/plain">
       <input type="text" name="jmeno" placeholder="Vaše jméno" required>
       <input type="email" name="email" placeholder="E-mail" required>
       <input type="tel" name="telefon" placeholder="Telefon">
-      <textarea name="zprava" placeholder="Co potřebujete?" rows="5" required></textarea>
-
-      <button type="submit" class="btn btn-main">
-        Odeslat poptávku →
-      </button>
+      <textarea name="zprava" rows="5" placeholder="Co potřebujete?" required></textarea>
+      <button type="submit" class="btn btn-gradient">Odeslat poptávku →</button>
     </form>
 
   </div>
@@ -418,27 +293,19 @@
 
     <div>
       <img src="images/logo-horizontal.png" alt="Miloš Bušek logo">
-      <p>S námi budete vidět.</p>
+      <p>Reklama | Grafika | Tisk | Fotografie</p>
     </div>
 
-    <div>
-      <strong>Kontakt</strong>
-      <a href="tel:+420728551668">+420 728 551 668</a>
-      <a href="mailto:reklama@milosbusek.cz">reklama@milosbusek.cz</a>
-    </div>
-
-    <div>
-      <strong>Navigace</strong>
+    <nav>
       <a href="#uvod">Úvod</a>
       <a href="#sluzby">Služby</a>
       <a href="#realizace">Realizace</a>
+      <a href="#omne">O mně</a>
       <a href="#kontakt">Kontakt</a>
-    </div>
+    </nav>
 
-  </div>
+    <p>© 2025 Miloš Bušek</p>
 
-  <div class="footer-bottom">
-    © 2025 Miloš Bušek. Všechna práva vyhrazena.
   </div>
 </footer>
 
@@ -449,20 +316,6 @@
   menuBtn.addEventListener('click', () => {
     nav.classList.toggle('open');
   });
-
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.15
-  });
-
-  reveals.forEach(el => observer.observe(el));
 </script>
 
 </body>
