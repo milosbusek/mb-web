@@ -1006,3 +1006,54 @@ textarea {
     padding-top: 20px;
   }
 }
+/* FINAL DESKTOP ALIGN FIX */
+
+@media (min-width: 1200px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  .header-inner {
+    width: min(100% - 96px, 1680px);
+    max-width: 1680px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-grid,
+  .problem-grid,
+  .services-grid,
+  .process-grid,
+  .realization-grid,
+  .trust-grid,
+  .final-grid,
+  .form-grid,
+  .footer-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .process,
+  .final-cta,
+  .site-footer {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .realization-grid {
+    grid-template-columns: 260px repeat(5, 1fr);
+  }
+
+  .final-cta {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .quote-form {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
