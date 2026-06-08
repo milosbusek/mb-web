@@ -837,3 +837,108 @@ textarea {
     font-size: 34px;
   }
 }
+/* ================================
+   DESKTOP FULL WIDE FIX
+   pouze PC zobrazení
+================================ */
+
+@media (min-width: 1200px) {
+
+  .container,
+  .header-inner {
+    width: 100%;
+    max-width: none;
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+
+  .site-header {
+    width: 100%;
+  }
+
+  .header-inner {
+    height: 92px;
+  }
+
+  .hero {
+    width: 100%;
+    min-height: calc(100vh - 92px);
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-grid {
+    width: 100%;
+    max-width: none;
+    min-height: calc(100vh - 92px);
+    display: grid;
+    grid-template-columns: 42% 58%;
+    align-items: center;
+    gap: 0;
+  }
+
+  .hero-copy {
+    padding-left: 0;
+    max-width: 620px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(78px, 7vw, 125px);
+  }
+
+  .hero-copy p {
+    font-size: 21px;
+    max-width: 590px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    max-width: 1050px;
+  }
+
+  .problems {
+    margin-top: -95px;
+    padding-bottom: 70px;
+  }
+
+  .problem-grid {
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .services,
+  .realizations,
+  .trust,
+  .quote-form {
+    width: 100%;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .services-grid img {
+    height: 230px;
+  }
+
+  .process,
+  .final-cta,
+  .site-footer {
+    width: 100%;
+  }
+
+  .realization-grid {
+    grid-template-columns: 300px repeat(5, 1fr);
+  }
+
+  .real-card img {
+    height: 210px;
+  }
+}
