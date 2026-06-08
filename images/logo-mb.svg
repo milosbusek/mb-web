@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 220" role="img" aria-label="MB Miloš Bušek">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00C2B3"/>
+      <stop offset=".45" stop-color="#3A7BFF"/>
+      <stop offset=".78" stop-color="#7B5CFF"/>
+      <stop offset="1" stop-color="#C6F000"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="220" fill="none"/>
+  <g fill="none" stroke="url(#g)" stroke-width="22" stroke-linejoin="round" stroke-linecap="square">
+    <path d="M40 170 V45 L125 125 L210 45 H305 Q360 45 360 95 Q360 125 330 137 Q372 148 372 188 Q372 208 345 208 H210 V120"/>
+    <path d="M230 45 H338 Q383 45 383 92 Q383 125 345 137 H230"/>
+    <path d="M230 137 H350 Q395 137 395 176 Q395 208 350 208 H230"/>
+  </g>
+  <line x1="430" y1="35" x2="430" y2="185" stroke="#DDE3EE" stroke-width="3" opacity=".7"/>
+  <text x="470" y="92" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="44" fill="#F4F7FB" letter-spacing="8">MILOŠ BUŠEK</text>
+  <text x="470" y="136" font-family="Arial, Helvetica, sans-serif" font-weight="600" font-size="17" fill="#DDE3EE" letter-spacing="5">REKLAMA | GRAFIKA | TISK</text>
+  <text x="470" y="177" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="22" fill="url(#g)" letter-spacing="6">S NÁMI BUDETE VIDĚT.</text>
+</svg>
