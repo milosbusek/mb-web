@@ -942,3 +942,67 @@ textarea {
     height: 210px;
   }
 }
+/* DESKTOP FINAL FIX */
+
+@media (min-width: 1200px) {
+
+  .container,
+  .header-inner {
+    width: 100%;
+    max-width: none;
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+
+  .hero {
+    min-height: 680px;
+    padding: 55px 0 105px;
+    display: block;
+  }
+
+  .hero-grid {
+    min-height: auto;
+    grid-template-columns: 38% 62%;
+    gap: 30px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(72px, 6vw, 104px);
+    line-height: 0.95;
+    margin-bottom: 28px;
+  }
+
+  .hero-copy p {
+    font-size: 19px;
+    max-width: 600px;
+    margin-bottom: 28px;
+  }
+
+  .hero-checks {
+    gap: 13px;
+    margin-bottom: 30px;
+  }
+
+  .hero-visual img {
+    max-width: 900px;
+    transform: none;
+  }
+
+  .problems {
+    margin-top: -80px;
+    padding-bottom: 55px;
+  }
+
+  .problem-grid {
+    height: 118px;
+  }
+
+  .problem-grid article {
+    min-height: 118px;
+    padding: 22px 24px;
+  }
+
+  .services {
+    padding-top: 20px;
+  }
+}
