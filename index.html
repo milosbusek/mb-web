@@ -3,143 +3,83 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Miloš Bušek | S námi budete vidět.</title>
-  <meta name="description" content="Miloš Bušek – reklama, grafika, tisk, značení a fotografie." />
-
+  <meta name="description" content="Miloš Bušek – reklama, grafika, tisk, značení a fotografie. S námi budete vidět." />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-
 <body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#uvod" aria-label="Miloš Bušek">
+        <img src="images/logo-horizontal.png" alt="Miloš Bušek logo">
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#sluzby">Služby</a>
+        <a href="#reference">Reference</a>
+        <a href="#koncept">Koncept</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn" aria-label="Otevřít menu">☰</button>
+    </div>
+  </header>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a href="#" class="logo">
-      <img src="images/logo-mb.svg" alt="Miloš Bušek logo">
-    </a>
-
-    <nav class="menu" id="menu">
-      <a href="#sluzby">Služby</a>
-      <a href="#reference">Reference</a>
-      <a href="#omne">O mně</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </div>
-</header>
-
-<main>
-
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <p class="small-title">REKLAMA | GRAFIKA | TISK | ZNAČENÍ | FOTOGRAFIE</p>
-
-      <h1>MILOŠ BUŠEK</h1>
-
-      <h2>S NÁMI BUDETE VIDĚT.</h2>
-
-      <p>
-        Kompletní řešení reklamy od návrhu až po realizaci.
-        Polepy vozidel, samolepky, reklamní tabule, bannery,
-        potisk textilu, laserové značení i fotografie.
-      </p>
-
-      <div class="buttons">
-        <a href="#kontakt" class="btn primary">Nezávazná poptávka</a>
-        <a href="#sluzby" class="btn secondary">Naše služby</a>
+  <main id="uvod">
+    <section class="hero">
+      <div class="hero-inner">
+        <img class="hero-logo" src="images/logo-horizontal.png" alt="MB Miloš Bušek">
       </div>
+    </section>
+
+    <section class="dark-showcase" id="reference">
+      <img src="images/dark-logo-row.png" alt="Ukázky použití loga MB na tmavém podkladu">
+    </section>
+
+    <section class="concept" id="koncept">
+      <img src="images/concept-palette.png" alt="Koncept loga a barevná paleta">
+    </section>
+
+    <section class="applications">
+      <img src="images/applications.png" alt="Aplikace loga na tričku, vozidle, vizitkách a ceduli">
+    </section>
+
+    <section class="services" id="sluzby">
+      <div class="container">
+        <p class="section-label">REKLAMA | GRAFIKA | TISK | ZNAČENÍ | FOTOGRAFIE</p>
+        <h1>MILOŠ BUŠEK</h1>
+        <h2>S NÁMI BUDETE VIDĚT.</h2>
+        <div class="service-grid">
+          <article><span>01</span><h3>Polepy vozidel</h3><p>Reklamní polepy osobních a firemních vozidel.</p></article>
+          <article><span>02</span><h3>Samolepky</h3><p>Tisk samolepek s tvarovým ořezem na míru.</p></article>
+          <article><span>03</span><h3>Reklamní tabule</h3><p>Cedule, poutače, orientační a firemní značení.</p></article>
+          <article><span>04</span><h3>Potisk textilu</h3><p>Trička, mikiny, pracovní oděvy a reklamní textil.</p></article>
+          <article><span>05</span><h3>Bannery a plakáty</h3><p>Velkoformátový tisk pro interiér i exteriér.</p></article>
+          <article><span>06</span><h3>Laserové značení</h3><p>Přesné značení předmětů a různých materiálů.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="container contact-inner">
+        <div>
+          <p class="section-label">KONTAKT</p>
+          <h2>Máte zájem o spolupráci?</h2>
+          <p>Ozvěte se mi a společně najdeme nejlepší řešení pro vaši reklamu.</p>
+        </div>
+        <div class="contact-box">
+          <a href="tel:+420777123456">+420 777 123 456</a>
+          <a href="mailto:info@milosbusek.cz">info@milosbusek.cz</a>
+          <span>Plzeňský kraj, Česká republika</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <img src="images/logo-horizontal.png" alt="MB Miloš Bušek">
+      <p>© 2026 Miloš Bušek</p>
     </div>
-
-    <div class="hero-logo">
-      <img src="images/logo-mb.svg" alt="MB Miloš Bušek">
-    </div>
-  </div>
-</section>
-
-<section class="brand-strip">
-  <div>REKLAMA</div>
-  <div>GRAFIKA</div>
-  <div>TISK</div>
-  <div>ZNAČENÍ</div>
-  <div>FOTOGRAFIE</div>
-</section>
-
-<section class="section" id="sluzby">
-  <div class="container">
-    <p class="section-label">Co nabízím</p>
-    <h2>Služby</h2>
-
-    <div class="cards">
-      <article><span>01</span><h3>Polepy vozidel</h3><p>Firemní i reklamní polepy osobních a užitkových vozidel.</p></article>
-      <article><span>02</span><h3>Samolepky</h3><p>Tisk samolepek s tvarovým ořezem na míru.</p></article>
-      <article><span>03</span><h3>Reklamní tabule</h3><p>Tabule, cedule, poutače a orientační značení.</p></article>
-      <article><span>04</span><h3>Potisk textilu</h3><p>Trička, mikiny, pracovní oděvy a reklamní textil.</p></article>
-      <article><span>05</span><h3>Bannery a plakáty</h3><p>Velkoformátový tisk pro interiér i exteriér.</p></article>
-      <article><span>06</span><h3>Laserové značení</h3><p>Přesné značení předmětů a různých materiálů.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section light" id="reference">
-  <div class="container">
-    <p class="section-label">Ukázky práce</p>
-    <h2>Reference</h2>
-
-    <div class="gallery">
-      <div>Polepy vozidel</div>
-      <div>Reklamní tabule</div>
-      <div>Samolepky</div>
-      <div>Textil</div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="omne">
-  <div class="container about">
-    <div>
-      <p class="section-label">O mně</p>
-      <h2>Miloš Bušek</h2>
-      <p>
-        Reklamě se věnuji dlouhodobě a pomáhám firmám i jednotlivcům být vidět.
-        Každý projekt řeším individuálně – od prvního návrhu až po finální realizaci.
-      </p>
-    </div>
-
-    <div class="facts">
-      <div><strong>15+ let</strong><span>zkušeností</span></div>
-      <div><strong>Na míru</strong><span>individuální přístup</span></div>
-      <div><strong>Od návrhu</strong><span>až po realizaci</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="kontakt">
-  <div class="container contact-inner">
-    <div>
-      <p class="section-label">Kontakt</p>
-      <h2>Máte zájem o spolupráci?</h2>
-      <p>Ozvěte se mi a společně najdeme nejlepší řešení pro vaši reklamu.</p>
-    </div>
-
-    <div class="contact-box">
-      <a href="tel:+420777123456">+420 777 123 456</a>
-      <a href="mailto:info@milosbusek.cz">info@milosbusek.cz</a>
-      <span>Plzeňský kraj, Česká republika</span>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <img src="images/logo-mb.svg" alt="MB logo">
-    <p>© 2026 Miloš Bušek. S námi budete vidět.</p>
-  </div>
-</footer>
-
-<script src="js/script.js"></script>
+  </footer>
+  <script src="js/script.js"></script>
 </body>
 </html>
