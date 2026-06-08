@@ -312,10 +312,40 @@
 <script>
   const menuBtn = document.getElementById('menuBtn');
   const nav = document.getElementById('nav');
+  const navLinks = document.querySelectorAll('.nav a');
 
-  menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('open');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  }
+
+  function setActiveLink() {
+    const hash = window.location.hash || '#uvod';
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+
+      if (link.getAttribute('href') === hash) {
+        link.classList.add('active');
+      }
+
+      if (hash === '#poptavka' && link.getAttribute('href') === '#kontakt') {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.forEach(item => item.classList.remove('active'));
+      link.classList.add('active');
+      nav.classList.remove('open');
+    });
   });
+
+  window.addEventListener('hashchange', setActiveLink);
+  window.addEventListener('load', setActiveLink);
 </script>
 
 </body>
