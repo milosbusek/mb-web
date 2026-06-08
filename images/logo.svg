@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 150" role="img" aria-label="MB Miloš Bušek">
+<defs>
+<linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+<stop offset="0" stop-color="#00C2B3"/>
+<stop offset=".45" stop-color="#3A7BFF"/>
+<stop offset=".78" stop-color="#7B5CFF"/>
+<stop offset="1" stop-color="#C6F000"/>
+</linearGradient>
+</defs>
+<rect width="680" height="150" fill="none"/>
+<g fill="none" stroke="url(#g)" stroke-width="13" stroke-linejoin="round" stroke-linecap="square">
+<path d="M24 112 V28 L82 82 L140 28 H210 Q252 28 252 66 Q252 88 228 98 Q262 105 262 130 Q262 142 238 142 H140 V78"/>
+<path d="M154 28 H238 Q272 28 272 66 Q272 94 238 98 H154"/>
+<path d="M154 98 H244 Q282 98 282 122 Q282 142 244 142 H154"/>
+</g>
+<text x="322" y="58" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="900" fill="#07142E" letter-spacing="3">MILOŠ BUŠEK</text>
+<text x="324" y="88" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#07142E" letter-spacing="2">REKLAMA | GRAFIKA | TISK | FOTOGRAFIE</text>
+</svg>
