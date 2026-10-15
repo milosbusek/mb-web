@@ -1,352 +1,865 @@
 <!DOCTYPE html>
+
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Miloš Bušek – reklamní výroba</title>
+<style>
+:root{--g:#8ddd00;--g2:#b8ff40;--black:#06100b;--dark:#0a1310;--paper:#f4f6f2;--text:#0a0d0b;--mut:#59625c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#111;line-height:1.45}
+img{display:block;max-width:100%}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+.wrap{width:min(1440px,93vw);margin:auto}
+header{height:103px;background:rgba(5,14,17,.98);color:#fff;position:sticky;top:0;z-index:100;box-shadow:0 3px 14px rgba(0,0,0,.25)}
+.head{height:100%;display:flex;align-items:center;gap:26px}
+.brand{display:flex;align-items:center;gap:22px;min-width:390px;cursor:pointer}
+.logo{width:88px;height:88px;border:4px solid #d7e8bc;border-radius:50%;position:relative;overflow:hidden;background:#102028}
+.logo:before{content:"";position:absolute;width:57px;height:18px;left:13px;top:27px;background:linear-gradient(135deg,#8fe000 0 25%,#fff 25% 41%,#e51e56 41% 58%,#36bdf2 58% 78%,#fff 78%);transform:skew(-22deg) rotate(-15deg);border-radius:70% 15% 70% 15%}
+.logo:after{content:"";position:absolute;width:38px;height:8px;left:22px;top:40px;background:#7de200;transform:rotate(-17deg);border-radius:90%}
+.brandname{font-size:30px;letter-spacing:.3px;line-height:1.02;font-weight:400;white-space:nowrap}.brandname b{font-weight:800}
+.brandsub{font-size:13px;letter-spacing:7px;margin-top:7px;color:#edf0ee;white-space:nowrap}
+nav{display:flex;gap:34px;margin-left:auto;font-size:16px}nav a{cursor:pointer;padding:38px 0 17px}nav a:hover,nav a.active{color:var(--g);border-bottom:2px solid var(--g)}
+.topcontact{display:flex;gap:23px;align-items:center;font-size:14px;white-space:nowrap}.topcontact strong{font-size:15px}.tico{color:var(--g);font-size:25px;margin-right:7px}
+.page{display:none}.page.active{display:block}
+.hero{height:620px;position:relative;overflow:hidden;background:#101}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.65) 44%,rgba(0,0,0,.15))}
+.hero-copy{position:relative;z-index:2;color:#fff;padding-top:90px;max-width:720px}.kicker{color:var(--g);font-weight:800;font-size:13px;letter-spacing:2px}
+.hero h1{font-size:72px;line-height:.98;margin:12px 0 17px;letter-spacing:-2.5px}.hero h1 em{font-style:normal;color:var(--g)}.hero p{font-size:18px;color:#e0e6e1;max-width:640px}.hero-services{font-size:19px;font-weight:700;letter-spacing:.5px}
+.btnrow{display:flex;gap:12px;margin-top:26px}.cta{background:var(--g);border:0;border-radius:7px;padding:15px 20px;font-weight:800;cursor:pointer}.outline{background:transparent;border:1px solid #fff;color:#fff;border-radius:7px;padding:14px 19px;font-weight:700;cursor:pointer}
+.section{padding:70px 0}.light{background:var(--paper)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}.eyebrow{color:#6c786f;font-weight:800;letter-spacing:2px;font-size:12px}.section-head h2{font-size:44px;margin:6px 0 0}.section-head p{max-width:570px;color:#616a64}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.service-card{height:350px;position:relative;border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 16px 40px rgba(0,0,0,.16)}.service-card img{width:100%;height:100%;object-fit:cover;transition:.35s}.service-card:hover img{transform:scale(1.04)}.overlay{position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.96))}.scopy{position:absolute;left:20px;right:20px;bottom:19px;color:#fff}.scopy h3{font-size:23px;margin:0 0 7px}.scopy p{font-size:14px;color:#d9e0db;margin:0 0 10px}.scopy span{font-size:12px;color:var(--g);font-weight:800}
+.stats{background:#0a130f;color:#fff}.statsgrid{display:grid;grid-template-columns:repeat(4,1fr)}.stat{padding:28px;border-right:1px solid #26332b}.stat strong{display:block;color:var(--g);font-size:31px}.stat small{display:block;color:#b5beb8;margin-top:4px}
+.about{background:#08110c;color:#fff}.aboutgrid{display:grid;grid-template-columns:220px 1fr 1fr;gap:40px;align-items:center}.portrait{width:200px;height:200px;object-fit:cover;border-radius:50%;border:4px solid var(--g)}.about h2{font-size:42px;margin:7px 0 10px}.about p{color:#c6cec8;font-size:17px}.features{display:grid;grid-template-columns:1fr 1fr;gap:12px}.feat{border:1px solid #28362f;border-radius:10px;padding:18px}.feat b{display:block;color:var(--g);margin-bottom:4px}.feat span{font-size:14px;color:#b5beb8}
+.formsec{background:#f3f4f0}.formgrid{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px}.formgrid h2{font-size:44px;margin:7px 0 12px}.formgrid p{color:#667069}.formcard{background:#fff;border-radius:14px;padding:28px;box-shadow:0 16px 45px rgba(0,0,0,.09)}.fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:grid;gap:6px}.full{grid-column:1/-1}label{font-size:12px;font-weight:800}input,select,textarea{border:1px solid #cbd3ce;border-radius:7px;padding:13px;background:#fff}textarea{min-height:110px;resize:vertical}.success{display:none;margin-top:12px;padding:11px;background:#e7f7c9;border-radius:7px;color:#315207;font-weight:700}
+.contact{background:#fff}.contactgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.contactgrid p{color:#5f6962}footer{background:#08110c;color:#859088;padding:17px 0;font-size:12px}
+/* service template exactly unified */
+.service-stage{background:linear-gradient(90deg,#fbfcf9 0%,#fbfcf9 42%,#eef1ee 42%,#eef1ee 100%);min-height:calc(100vh - 103px)}
+.service-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:25px;align-items:center;padding-top:35px}
+.service-copy{padding:0 0 0 4px}.mini-title{font-weight:800;font-size:17px;display:flex;align-items:center;gap:16px;margin-bottom:18px}.mini-title span{width:49px;height:8px;background:var(--g);border-radius:8px}
+.service-copy h1{font-size:67px;line-height:1.03;letter-spacing:-2px;margin:0 0 18px;max-width:650px}.service-copy h1 em{display:block;font-style:normal;color:var(--g)}
+.service-lead{font-size:20px;max-width:590px;margin-bottom:26px}.benefits{display:grid;gap:12px}.benefit{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}.bicon{width:64px;height:64px;background:#dafa9f;border-radius:50%;display:grid;place-items:center;font-size:30px;border:1px solid #caef8c}.benefit b{display:block;font-size:18px}.benefit span{display:block;font-size:16px;color:#323834}
+.service-visual{align-self:stretch;display:flex;align-items:center;justify-content:center;min-height:560px;overflow:hidden}.service-visual img{width:100%;height:560px;object-fit:cover}
+.thumbbar{display:grid;grid-template-columns:45px 1fr 45px;gap:12px;align-items:center;width:min(1490px,96vw);margin:0 auto;padding:10px 0;background:#fff}.roundarr{width:40px;height:40px;border-radius:50%;border:1px solid #505a54;background:white;font-size:24px;cursor:pointer}.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.thumbs img{height:150px;width:100%;object-fit:cover;border-radius:6px;background:#f1f2ef}
+.service-footer-row{display:grid;grid-template-columns:1.12fr 1px .95fr .5fr .73fr;gap:30px;align-items:center;padding:18px 0 22px}.service-cta{height:76px;border:0;border-radius:9px;background:#07100c;color:#fff;font-size:17px;font-weight:800;cursor:pointer;text-align:left;padding:0 24px;box-shadow:0 10px 24px rgba(0,0,0,.12)}.service-cta span{font-size:30px;margin-right:15px;vertical-align:middle}.service-cta b{float:right;font-size:31px;font-weight:400}.vline{height:74px;background:#626b65}.service-quote{font-size:17px;font-style:italic}.signature{font-family:"Brush Script MT","Segoe Script",cursive;font-size:37px;color:#63c900;transform:rotate(-6deg);white-space:nowrap}.shopbox{border:1.5px solid var(--g);border-radius:9px;padding:15px 17px;display:flex;gap:12px;align-items:center;font-size:17px}
+@media(max-width:1180px){.topcontact{display:none}nav{gap:20px}.brand{min-width:330px}.service-copy h1{font-size:56px}}
+@media(max-width:900px){header{height:86px}.logo{width:64px;height:64px}.brandname{font-size:24px}.brandsub{font-size:10px;letter-spacing:4px}nav{display:none}.brand{min-width:auto}.cards{grid-template-columns:repeat(2,1fr)}.service-stage{background:#fbfcf9}.service-grid{grid-template-columns:1fr}.service-visual img{height:420px}.service-footer-row{grid-template-columns:1fr 1fr}.vline{display:none}.thumbs{grid-template-columns:repeat(3,1fr)}.thumbs img:nth-child(n+4){display:none}.aboutgrid{grid-template-columns:180px 1fr}.features{grid-column:1/-1}.formgrid{grid-template-columns:1fr}}
+@media(max-width:650px){.brandname{font-size:20px}.brandsub{font-size:8px;letter-spacing:3px}.cards{grid-template-columns:1fr}.hero h1{font-size:45px}.statsgrid{grid-template-columns:1fr 1fr}.aboutgrid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.contactgrid{grid-template-columns:1fr}.service-copy h1{font-size:45px}.service-lead{font-size:17px}.benefit{grid-template-columns:52px 1fr}.bicon{width:52px;height:52px;font-size:24px}.thumbs{grid-template-columns:1fr 1fr}.thumbs img:nth-child(n+3){display:none}.service-footer-row{grid-template-columns:1fr}.service-quote,.signature,.shopbox{text-align:center;justify-content:center}}
 
-  <title>Miloš Bušek | S námi budete vidět</title>
-  <meta name="description" content="Miloš Bušek – reklama, grafika, tisk, značení a fotografie. Kompletní reklamní servis pro vaši firmu." />
+.signature{display:flex;align-items:center;justify-content:center}
+.signature img{display:block;width:150px;max-height:62px;object-fit:contain}
+.service-visual{position:relative}
+.carousel-main{transition:opacity .24s ease, transform .35s ease}
+.carousel-main.is-changing{opacity:.22;transform:scale(.992)}
+.thumbs img{cursor:pointer;transition:transform .2s ease,opacity .2s ease,border-color .2s ease}
+.thumbs img:hover{transform:translateY(-2px)}
+.thumbs img.active-thumb{outline:3px solid var(--g);outline-offset:-3px;opacity:1}
+.roundarr{transition:background .2s ease,transform .2s ease}
+.roundarr:hover{background:#e9f9c9;transform:scale(1.05)}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+/* Schválený ostrý podpis */
+.signature{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:170px;
+}
+.signature img{
+  width:154px!important;
+  height:85px!important;
+  max-width:154px!important;
+  max-height:85px!important;
+  object-fit:contain!important;
+  transform:none!important;
+  filter:none!important;
+  opacity:1!important;
+  image-rendering:auto!important;
+}
 
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+/* Produktová fotografie – přesně 5 schválených obrázků */
+#page-produkt .thumbs img{
+  object-fit:cover!important;
+  background:#f3f3f3;
+}
 
+/* Fotografie: používat zdrojové rozlišení bez umělého rozmazávání */
+.service-visual img,
+.service-card img,
+.thumbs img{
+    image-rendering:auto !important;
+    filter:none !important;
+    -webkit-filter:none !important;
+}
+#page-produkt .service-visual img{
+    object-fit:contain !important;
+    background:#f5f5f3;
+}
+
+/* Produktová fotografie – ostřejší náhledy 2–5 */
+#page-produkt .thumbs img{
+    image-rendering:auto !important;
+    filter:none !important;
+    backface-visibility:hidden;
+    transform:translateZ(0);
+}
+
+#page-produkt .signature,
+#page-produkt .signature img{
+    background:transparent !important;
+    box-shadow:none !important;
+    border:0 !important;
+}
+
+/* Nové portfolio fotografie – ostré webové převzorkování 2000 × 1400 */
+.thumbs img{image-rendering:auto!important;filter:none!important}
+
+/* Polepy: přirozené fotografie bez přeostření */
+#page-polepy .thumbs img,
+#page-polepy .service-visual img{
+  filter:none!important;
+  image-rendering:auto!important;
+}
+/* Nový reklamní štít */
+#page-cedule .thumbs img{object-fit:cover}
+
+#page-produkt .thumbs img,
+#page-produkt .service-visual img{
+  image-rendering:auto!important;
+  filter:none!important;
+}
+</style>
+<style>
+/* OPRAVA POZICE PO KLIKNUTÍ V MENU
+   Sticky hlavička má na PC 103 px, proto cílová sekce začíná s příjemným odstupem pod ní. */
+html{scroll-padding-top:125px!important;}
+#home,#sluzby,#reference,#onas,#poptavka,#kontakt{
+  scroll-margin-top:125px!important;
+}
+@media(max-width:900px){
+  html{scroll-padding-top:105px!important;}
+  #home,#sluzby,#reference,#onas,#poptavka,#kontakt{
+    scroll-margin-top:105px!important;
+  }
+}
+</style><style>
+/* OPRAVA SEKCE KONTAKT – protože je na konci stránky, potřebuje spodní rezervu,
+   aby šla po kliknutí vytáhnout pod pevnou horní lištu. */
+#kontakt{
+  scroll-margin-top:125px!important;
+  padding-bottom:160px!important;
+}
+@media(max-width:900px){
+  #kontakt{
+    scroll-margin-top:105px!important;
+    padding-bottom:120px!important;
+  }
+}
+</style><style>
+/* FINÁLNÍ OPRAVA POZICE KONTAKTU */
+#kontakt{
+  scroll-margin-top:125px!important;
+  padding-top:64px!important;
+  padding-bottom:64px!important;
+  min-height:calc(100vh - 125px)!important;
+  box-sizing:border-box!important;
+}
+@media(max-width:900px){
+  #kontakt{
+    scroll-margin-top:105px!important;
+    padding-top:42px!important;
+    padding-bottom:42px!important;
+    min-height:calc(100vh - 105px)!important;
+  }
+}
+</style><style>
+/* Kontakt na PC se po kliknutí zobrazí jako spodní kompozice stránky.
+   Rušíme předchozí umělé natažení sekce Kontakt. */
+#kontakt{
+  min-height:0!important;
+  padding-top:64px!important;
+  padding-bottom:64px!important;
+}
+@media(max-width:900px){
+  #kontakt{
+    min-height:0!important;
+    padding-top:42px!important;
+    padding-bottom:42px!important;
+  }
+}
+</style><style>
+/* MOBILNÍ MENU – pouze mobil/tablet */
+.mobile-menu-btn,
+.mobile-nav{display:none;}
+
+@media(max-width:900px){
+  header{
+    height:86px!important;
+    overflow:visible!important;
+  }
+  .head{
+    position:relative;
+    gap:12px!important;
+  }
+  .topcontact{
+    display:none!important;
+  }
+  .brand{
+    flex:1 1 auto;
+    min-width:0!important;
+    gap:12px!important;
+  }
+  .logo{
+    flex:0 0 auto;
+  }
+  .brandname{
+    white-space:nowrap;
+  }
+
+  .mobile-menu-btn{
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 48px;
+    width:48px;
+    height:48px;
+    margin-left:auto;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:8px;
+    background:#101b16;
+    color:#8ddd00;
+    font-size:29px;
+    line-height:1;
+    cursor:pointer;
+    z-index:1002;
+  }
+  .mobile-menu-btn.open{
+    background:#8ddd00;
+    color:#06100b;
+  }
+
+  .mobile-nav{
+    display:none;
+    position:absolute;
+    left:0;
+    right:0;
+    top:86px;
+    z-index:1001;
+    background:#07100c;
+    border-top:1px solid rgba(255,255,255,.08);
+    box-shadow:0 14px 30px rgba(0,0,0,.32);
+    padding:8px 16px 16px;
+  }
+  .mobile-nav.open{
+    display:block!important;
+  }
+  .mobile-nav > a{
+    display:block;
+    padding:15px 8px;
+    color:#fff;
+    font-size:18px;
+    font-weight:700;
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+  .mobile-nav > a:active,
+  .mobile-nav > a:hover{
+    color:#8ddd00;
+  }
+  .mobile-nav-contact{
+    display:grid;
+    gap:8px;
+    padding-top:14px;
+  }
+  .mobile-nav-contact a{
+    display:block;
+    color:#cfd8d2;
+    font-size:15px;
+    padding:5px 8px;
+  }
+}
+
+@media(max-width:480px){
+  .brandname{font-size:18px!important;}
+  .brandsub{font-size:7px!important;letter-spacing:2.4px!important;}
+  .logo{width:58px!important;height:58px!important;}
+}
+</style><style>
+/* MOBIL – sekce „Co pro vás vyrobím“ */
+@media(max-width:900px){
+  #sluzby .section-head{
+    margin-bottom:16px!important;
+    gap:12px!important;
+    align-items:center!important;
+  }
+  #sluzby .section-head h2{
+    margin-top:0!important;
+    margin-bottom:0!important;
+    line-height:1.05!important;
+  }
+  #sluzby .section-head p{
+    margin-top:0!important;
+    margin-bottom:0!important;
+    align-self:center!important;
+  }
+}
+</style><style>
+/* MOBIL – ukotvené záhlaví s hamburgerem; PC beze změny */
+@media(max-width:900px){
+  header{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    z-index:9999!important;
+  }
+  body{
+    padding-top:86px!important;
+  }
+  .mobile-nav{
+    position:fixed!important;
+    top:86px!important;
+    left:0!important;
+    right:0!important;
+    z-index:9998!important;
+  }
+}
+</style><style>
+/* MOBIL – oprava pevného záhlaví podle kontroly na telefonu.
+   Záhlaví zůstává nahoře, ale už nepřekrývá / neposouvá obsah. PC beze změny. */
+@media(max-width:900px){
+  body{
+    padding-top:0!important;
+  }
+
+  header{
+    position:sticky!important;
+    top:0!important;
+    left:auto!important;
+    right:auto!important;
+    width:100%!important;
+    height:86px!important;
+    min-height:86px!important;
+    z-index:9999!important;
+    overflow:visible!important;
+    background:#06100b!important;
+  }
+
+  header .head{
+    height:86px!important;
+    min-height:86px!important;
+    display:flex!important;
+    align-items:center!important;
+    justify-content:space-between!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+  }
+
+  header .brand{
+    height:86px!important;
+    display:flex!important;
+    align-items:center!important;
+    margin:0!important;
+    padding:0!important;
+  }
+
+  header .logo{
+    margin:0!important;
+    flex:0 0 auto!important;
+  }
+
+  header .mobile-menu-btn{
+    position:static!important;
+    top:auto!important;
+    right:auto!important;
+    margin:0 0 0 auto!important;
+    align-self:center!important;
+  }
+
+  header .mobile-nav{
+    position:absolute!important;
+    top:86px!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    z-index:9998!important;
+  }
+}
+</style><style>
+/* MOBIL – rezerva pod horní lištou telefonu / prohlížeče.
+   Záhlaví se už neschová pod horní systémovou lištu. PC beze změny. */
+@media(max-width:900px){
+  :root{
+    --mobile-safe-top:max(env(safe-area-inset-top, 0px), 20px);
+    --mobile-header-core:86px;
+  }
+
+  header{
+    position:sticky!important;
+    top:0!important;
+    height:calc(var(--mobile-header-core) + var(--mobile-safe-top))!important;
+    min-height:calc(var(--mobile-header-core) + var(--mobile-safe-top))!important;
+    padding-top:var(--mobile-safe-top)!important;
+    box-sizing:border-box!important;
+    background:#06100b!important;
+    z-index:9999!important;
+  }
+
+  header .head{
+    height:var(--mobile-header-core)!important;
+    min-height:var(--mobile-header-core)!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+  }
+
+  header .brand,
+  header .mobile-menu-btn{
+    transform:none!important;
+    top:auto!important;
+  }
+
+  header .mobile-nav{
+    top:calc(var(--mobile-header-core) + var(--mobile-safe-top))!important;
+  }
+}
+</style><style>
+/* MOBIL – definitivně pevné záhlaví, posunuté o něco níž.
+   Pouze mobil, PC beze změny. */
+@media(max-width:900px){
+  :root{
+    --mobile-safe-top:30px;
+    --mobile-header-core:86px;
+    --mobile-header-total:116px;
+  }
+
+  body{
+    padding-top:var(--mobile-header-total)!important;
+  }
+
+  header{
+    position:fixed!important;
+    top:0!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    height:var(--mobile-header-total)!important;
+    min-height:var(--mobile-header-total)!important;
+    padding-top:var(--mobile-safe-top)!important;
+    box-sizing:border-box!important;
+    background:#06100b!important;
+    z-index:9999!important;
+    overflow:visible!important;
+  }
+
+  header .head{
+    height:var(--mobile-header-core)!important;
+    min-height:var(--mobile-header-core)!important;
+    padding-top:0!important;
+    padding-bottom:0!important;
+    box-sizing:border-box!important;
+    align-items:center!important;
+  }
+
+  header .mobile-nav{
+    position:fixed!important;
+    top:var(--mobile-header-total)!important;
+    left:0!important;
+    right:0!important;
+    width:100%!important;
+    z-index:9998!important;
+  }
+}
+</style></head>
 <body>
-
-<header class="site-header">
-  <div class="header-inner">
-
-    <a href="#uvod" class="logo">
-      <img src="images/logo-horizontal.png" alt="Miloš Bušek logo">
-    </a>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Otevřít menu">
-      ☰
-    </button>
-
-    <nav class="nav" id="nav">
-      <a href="#uvod" class="active">Úvod</a>
-      <a href="#sluzby">Služby</a>
-      <a href="#realizace">Realizace</a>
-      <a href="#omne">O mně</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <a href="#poptavka" class="header-cta">
-      Poptat nabídku <span>→</span>
-    </a>
-
-  </div>
-</header>
-
-<main id="uvod">
-
-<section class="hero">
-  <div class="hero-bg"></div>
-
-  <div class="container hero-grid">
-
-    <div class="hero-copy">
-      <h1>
-        S námi<br>
-        <span>budete vidět.</span>
-      </h1>
-
-      <p>
-        Pomáhám firmám získat pozornost, budovat důvěru
-        a přivádět nové zákazníky pomocí reklamy, grafiky,
-        tisku a fotografie.
-      </p>
-
-      <ul class="hero-checks">
-        <li><span>✓</span> Od návrhu až po realizaci</li>
-        <li><span>✓</span> Jeden partner pro celou reklamu vaší firmy</li>
-        <li><span>✓</span> Plzeňský kraj a celá ČR</li>
-      </ul>
-
-      <a href="#poptavka" class="btn btn-gradient">
-        Chci nezávaznou nabídku <span>→</span>
-      </a>
-    </div>
-
-    <div class="hero-visual">
-      <img src="images/hero-van.png" alt="Polep dodávky Miloš Bušek">
-    </div>
-
-  </div>
+<header>
+<div class="wrap head">
+<div class="brand" onclick="showPage('home')">
+<div class="logo"></div>
+<div><div class="brandname">MILOŠ <b>BUŠEK</b></div><div class="brandsub">REKLAMNÍ VÝROBA</div></div>
+</div>
+<nav>
+<a onclick="goHome('home')">Domů</a>
+<a class="active" onclick="goHome('sluzby')">Služby</a>
+<a onclick="goHome('reference')">Reference</a>
+<a onclick="goHome('onas')">O nás</a>
+<a onclick="goHome('poptavka')">Poptávka</a>
+<a onclick="goHome('kontakt')">Kontakt</a>
+</nav>
+<div class="topcontact">
+<span><span class="tico">☎</span><strong>728 551 668</strong></span>
+<span><span class="tico">✉</span>milosbusek@gmail.com</span>
+<span><span class="tico">●</span>Luční 659<br/>345 06 Kdyně</span>
+</div>
+<button aria-expanded="false" aria-label="Otevřít menu" class="mobile-menu-btn" type="button">☰</button></div>
+<div aria-hidden="true" class="mobile-nav"><a data-target="home" href="#">Domů</a><a data-target="sluzby" href="#">Služby</a><a data-target="reference" href="#">Reference</a><a data-target="onas" href="#">O nás</a><a data-target="poptavka" href="#">Poptávka</a><a data-target="kontakt" href="#">Kontakt</a><div class="mobile-nav-contact"><a href="tel:+420728551668">☎ 728 551 668</a><a href="mailto:milosbusek@gmail.com">✉ milosbusek@gmail.com</a></div></div></header>
+<section class="page active" id="page-home">
+<section class="hero" id="home"><video autoplay="" loop="" muted="" playsinline="" poster="assets/webp-01.webp"><source src="assets/mp4-01.mp4" type="video/mp4"/></video><div class="wrap hero-copy"><div class="kicker">REKLAMNÍ VÝROBA · KDYNĚ</div><h1>REKLAMA,<br/>KTERÁ JE <em>VIDĚT.</em></h1><div class="hero-services">SAMOLEPKY · CEDULE · BANNERY · POLEPY · TISK</div><p>Vlastní výroba v Kdyni. Od jednoho kusu po pravidelné série. Rychlá domluva a řešení na míru.</p><div class="btnrow"><button class="cta" onclick="goHome('poptavka')">POPTAT VÝROBU →</button><a class="outline" href="tel:+420728551668">☎ ZAVOLAT</a></div></div></section>
+<section class="section light" id="sluzby"><div class="wrap"><div class="section-head"><div><div class="eyebrow">SLUŽBY</div><h2>Co pro vás vyrobím</h2></div><p>Reklamní výroba od návrhu po hotový výrobek. Samolepky, cedule, bannery, polepy, produktová fotografie a tiskoviny – vše řešíte přímo se mnou.</p></div><div class="cards">
+<article class="service-card" onclick="showPage('samolepky')" onkeydown="if(event.key==='Enter')showPage('samolepky')" tabindex="0">
+<img alt="Samolepky a etikety" src="assets/webp-02.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Samolepky a etikety</h3><p>Tištěné samolepky a etikety, tvarový ořez a materiál podle použití.</p><span>OTEVŘÍT SLUŽBU →</span></div>
+</article>
+<article class="service-card" onclick="showPage('cedule')" onkeydown="if(event.key==='Enter')showPage('cedule')" tabindex="0">
+<img alt="Reklamní značení" src="assets/webp-03.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Reklamní značení</h3><p>Cedule, štíty, informační tabule a další reklamní značení včetně grafické přípravy.</p><span>OTEVŘÍT SLUŽBU →</span></div>
+</article>
+<article class="service-card" onclick="showPage('bannery')" onkeydown="if(event.key==='Enter')showPage('bannery')" tabindex="0">
+<img alt="Bannery a plachty" src="assets/webp-04.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Bannery a plachty</h3><p>Velkoformátové bannery s dokončením a oky, připravené k instalaci.</p><span>OTEVŘÍT SLUŽBU →</span></div>
+</article>
+<article class="service-card" onclick="showPage('polepy')" onkeydown="if(event.key==='Enter')showPage('polepy')" tabindex="0">
+<img alt="Polepy" src="assets/webp-05.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Polepy</h3><p>Polepy aut, výloh, desek a dalších reklamních ploch.</p><span>OTEVŘÍT SLUŽBU →</span></div>
+</article>
+<article class="service-card" onclick="showPage('produkt')" onkeydown="if(event.key==='Enter')showPage('produkt')" tabindex="0">
+<img alt="Produktová fotografie" src="assets/webp-06.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Produktová fotografie</h3><p>Produktové snímky pro e-shopy, katalogy, web a reklamní materiály.</p><span>OTEVŘÍT SLUŽBU →</span></div>
+</article>
+<article class="service-card" onclick="showPage('grafika')" onkeydown="if(event.key==='Enter')showPage('grafika')" tabindex="0">
+<img alt="Grafika a tisk – plakáty Myosmart" src="assets/jpg-01.jpg"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Grafika a tisk</h3><p>Grafická příprava a tisk plakátů, letáků, vizitek a dalších tiskovin.</p><span>OTEVŘÍT SLUŽBU →</span></div>
+</article>
+</div></div></section>
+<section class="section stats"><div class="wrap statsgrid"><div class="stat"><strong>20+</strong><b>let zkušeností</b><small>v reklamní výrobě</small></div><div class="stat"><strong>Kdyně</strong><b>vlastní výroba</b><small>rychlá dostupnost</small></div><div class="stat"><strong>1:1</strong><b>individuální přístup</b><small>zakázku řešíte přímo se mnou</small></div><div class="stat"><strong>✓</strong><b>kvalitní materiály</b><small>ověřené pro praxi</small></div></div></section>
+<section class="section about" id="onas"><div class="wrap aboutgrid"><img alt="Miloš Bušek" class="portrait" src="assets/webp-07.webp"/><div><div class="kicker">OSOBNÍ PŘÍSTUP</div><h2>Zakázku řešíte přímo se mnou</h2><p>Od návrhu přes volbu materiálu až po výrobu. Jednoduchá domluva, funkční řešení a kvalitní výsledek bez zbytečných mezičlánků.</p></div><div class="features"><div class="feat"><b>Vlastní výroba</b><span>Tisk, řezání a dokončení.</span></div><div class="feat"><b>Malé i velké série</b><span>Podle typu zakázky.</span></div><div class="feat"><b>Grafika + výroba</b><span>Vše na jednom místě.</span></div><div class="feat"><b>Kdyně a okolí</b><span>Domažlice a Plzeňský kraj.</span></div></div></div></section>
+<section class="section light" id="reference"><div class="wrap"><div class="section-head"><div><div class="eyebrow">REFERENCE</div><h2>Ukázky realizací</h2></div><p>Ukázky skutečných realizací z reklamní výroby, tisku, polepů a dalších zakázek.</p></div><div class="cards">
+<article class="service-card" onclick="showPage('samolepky')" onkeydown="if(event.key==='Enter')showPage('samolepky')" tabindex="0">
+<img alt="Samolepky a etikety" src="assets/webp-02.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Polep automobilu</h3><p>Firemní polep automobilu – řezaná a tištěná reklamní grafika.</p><span>UKÁZKA REALIZACE</span></div>
+</article>
+<article class="service-card" onclick="showPage('cedule')" onkeydown="if(event.key==='Enter')showPage('cedule')" tabindex="0">
+<img alt="Reklamní značení" src="assets/webp-03.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Reklamní tiskoviny</h3><p>Tisk a zpracování reklamních tiskovin a prezentačních materiálů.</p><span>UKÁZKA REALIZACE</span></div>
+</article>
+<article class="service-card" onclick="showPage('bannery')" onkeydown="if(event.key==='Enter')showPage('bannery')" tabindex="0">
+<img alt="Bannery a plachty" src="assets/webp-04.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Reklamní štít</h3><p>Výroba reklamního štítu a grafiky pro provozovnu.</p><span>UKÁZKA REALIZACE</span></div>
+</article>
+<article class="service-card" onclick="showPage('polepy')" onkeydown="if(event.key==='Enter')showPage('polepy')" tabindex="0">
+<img alt="Polepy" src="assets/webp-05.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Bannery a vlajky</h3><p>Velkoformátový tisk pro venkovní prezentaci a akce.</p><span>UKÁZKA REALIZACE</span></div>
+</article>
+<article class="service-card" onclick="showPage('produkt')" onkeydown="if(event.key==='Enter')showPage('produkt')" tabindex="0">
+<img alt="Produktová fotografie" src="assets/webp-06.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Reklamní předměty</h3><p>Potisk, samolepky a označení drobných reklamních předmětů.</p><span>UKÁZKA REALIZACE</span></div>
+</article>
+<article class="service-card" onclick="showPage('grafika')" onkeydown="if(event.key==='Enter')showPage('grafika')" tabindex="0">
+<img alt="Grafika a tisk" src="assets/webp-08.webp"/>
+<div class="overlay"></div>
+<div class="scopy"><h3>Plakáty</h3><p>Velkoformátový tisk plakátů pro propagaci a informační účely.</p><span>UKÁZKA REALIZACE</span></div>
+</article>
+</div></div></section>
+<section class="section formsec" id="poptavka"><div class="wrap formgrid"><div><div class="eyebrow">NEZÁVAZNÁ POPTÁVKA</div><h2>Pošlete zadání.<br/>Ozvu se s cenou.</h2><p>Stačí rozměr, množství a stručný popis. Přiložit můžete i grafiku, fotografii nebo náčrt.</p></div>
+<form class="formcard" onsubmit="event.preventDefault();document.getElementById('success').style.display='block'"><div class="fields">
+<div class="field"><label>JMÉNO / FIRMA</label><input placeholder="Jméno nebo firma" required=""/></div>
+<div class="field"><label>TELEFON / E-MAIL</label><input placeholder="Kontakt" required=""/></div>
+<div class="field"><label>SLUŽBA</label><select id="service"><option>Vyberte službu</option><option>Samolepky a etikety</option><option>Reklamní značení</option><option>Bannery a plachty</option><option>Polepy</option><option>Produktová fotografie</option><option>Grafika a tisk</option></select></div>
+<div class="field"><label>ROZMĚR / MNOŽSTVÍ</label><input placeholder="Např. 500 ks, 70 × 100 mm"/></div>
+<div class="field full"><label>POPIS ZAKÁZKY</label><textarea placeholder="Co potřebujete vyrobit?"></textarea></div>
+<div class="field full"><label>PŘÍLOHA</label><input type="file"/></div>
+</div><button class="cta" style="margin-top:15px" type="submit">ODESLAT POPTÁVKU →</button><div class="success" id="success">Děkuji za poptávku. Ozvu se vám co nejdříve.</div></form></div></section>
+<section class="section contact" id="kontakt"><div class="wrap contactgrid"><div><h3>Miloš Bušek</h3><p>Reklamní výroba<br/>IČ: 48346748</p></div><div><h3>Kontakt</h3><p>☎ 728 551 668<br/>✉ milosbusek@gmail.com<br/>www.milosbusek.cz</p></div><div><h3>Provozovna</h3><p>Luční 659<br/>345 06 Kdyně</p></div></div></section>
+<footer><div class="wrap">© 2026 Miloš Bušek · Reklamní výroba</div></footer>
 </section>
-
-<section class="problems">
-  <div class="container problem-grid">
-
-    <article>
-      <div class="icon teal">◎</div>
-      <strong>Bez viditelnosti</strong>
-      <p>firma ztrácí zakázky</p>
-    </article>
-
-    <article>
-      <div class="icon blue">♙</div>
-      <strong>Zákazníci vás</strong>
-      <p>nevidí</p>
-    </article>
-
-    <article>
-      <div class="icon purple">⌂</div>
-      <strong>Provozovna</strong>
-      <p>splývá s okolím</p>
-    </article>
-
-    <article>
-      <div class="icon lime">▭</div>
-      <strong>Auto</strong>
-      <p>nepracuje</p>
-    </article>
-
-    <article>
-      <div class="icon violet">◇</div>
-      <strong>Značka není</strong>
-      <p>zapamatovatelná</p>
-    </article>
-
-    <article>
-      <div class="icon beige">☹</div>
-      <strong>Nedostatečná</strong>
-      <p>prezentace</p>
-    </article>
-
-  </div>
+<section class="page service-page" id="page-samolepky">
+<div class="service-stage">
+<div class="service-grid wrap">
+<div class="service-copy">
+<div class="mini-title"><span></span>SAMOLEPKY A ETIKETY</div>
+<h1>Samolepky a etikety</h1>
+<p class="service-lead">Samolepky a etikety na míru – od malých produktových štítků až po větší reklamní samolepky. Tisk, tvarový ořez i volba vhodné fólie podle použití.</p>
+<div class="benefits"><div class="benefit"><div class="bicon">✂</div><div><b>Tvarový ořez</b><span>Kruh, obdélník i vlastní tvar podle grafiky</span></div></div><div class="benefit"><div class="bicon">▦</div><div><b>Malé i velké série</b><span>Od desítek kusů po pravidelnou sériovou výrobu</span></div></div><div class="benefit"><div class="bicon">◈</div><div><b>Materiál podle použití</b><span>Interiér, exteriér, permanentní i snímatelné fólie</span></div></div><div class="benefit"><div class="bicon">◷</div><div><b>Rychlá výroba</b><span>Termín vždy podle množství a náročnosti zakázky</span></div></div></div>
+</div>
+<div class="service-visual">
+<img alt="Samolepky a etikety" class="carousel-main" src="assets/webp-02.webp"/>
+</div>
+</div>
+<div class="thumbbar">
+<button aria-label="Předchozí" class="roundarr" data-dir="-1">←</button>
+<div class="thumbs"><img alt="MIYOSMART – červené samolepky" src="assets/jpg-02.jpg"/><img alt="MIYOSMART – modré samolepky" src="assets/jpg-03.jpg"/><img alt="NEWIA – svinovací metry" src="assets/webp-02.webp"/><img alt="CAR-SOFT – servisní samolepky klimatizace" src="assets/jpg-04.jpg"/><img alt="Domácí medovina – tištěné etikety" src="assets/jpg-05.jpg"/></div>
+<button aria-label="Další" class="roundarr" data-dir="1">→</button>
+</div>
+<div class="service-footer-row wrap">
+<button class="service-cta" onclick="goQuote('Samolepky a etikety')"><span>▣</span> POPTAT SAMOLEPKY A ETIKETY <b>→</b></button>
+<div class="vline"></div>
+<div class="service-quote">„Dobrá samolepka musí nejen dobře vypadat, ale také správně držet a vydržet.“</div>
+<div class="signature"><img alt="Miloš Bušek – podpis" src="assets/png-01.png"/></div>
+<div class="shopbox">▣ <span>Vhodné pro výrobky, obaly, provozovny a reklamní akce</span></div>
+</div>
+</div>
 </section>
-
-<section class="services" id="sluzby">
-  <div class="container">
-
-    <h2>
-      Kompletní <span>reklamní servis</span> pro vaši firmu
-    </h2>
-
-    <div class="services-grid">
-
-      <article>
-        <div class="service-icon teal">✂</div>
-        <img src="images/card-identity.png" alt="Firemní identita">
-        <h3>Firemní identita</h3>
-        <p>Logo, vizitky, letáky, katalogy a grafický styl. Aby vaše firma působila profesionálně.</p>
-        <a href="#poptavka">Více →</a>
-      </article>
-
-      <article>
-        <div class="service-icon lime">▣</div>
-        <img src="images/card-signage.png" alt="Reklamní značení">
-        <h3>Reklamní značení</h3>
-        <p>Výlohy, cedule, bannery a orientační systémy. Aby vás zákazníci našli na první pohled.</p>
-        <a href="#poptavka">Více →</a>
-      </article>
-
-      <article>
-        <div class="service-icon blue">▭</div>
-        <img src="images/card-car.png" alt="Polepy vozidel">
-        <h3>Polepy vozidel</h3>
-        <p>Design a realizace polepů aut, dodávek i flotil. Reklama, která pracuje 24/7.</p>
-        <a href="#poptavka">Více →</a>
-      </article>
-
-      <article>
-        <div class="service-icon purple">◎</div>
-        <img src="images/card-photo.png" alt="Produktová fotografie">
-        <h3>Produktová fotografie</h3>
-        <p>Fotografie produktů, služeb a provozoven, aby vaše nabídka prodávala na první pohled.</p>
-        <a href="#poptavka">Více →</a>
-      </article>
-
-      <article>
-        <div class="service-icon teal">▤</div>
-        <img src="images/card-print.png" alt="Tisk a výroba">
-        <h3>Tisk a výroba</h3>
-        <p>Samolepky, tiskoviny, reklamní předměty, velkoformát a další. Vše od návrhu po hotový produkt.</p>
-        <a href="#poptavka">Více →</a>
-      </article>
-
-      <article>
-        <div class="service-icon lime">✦</div>
-        <img src="images/card-gifts.png" alt="Reklamní dárky">
-        <h3>Reklamní dárky</h3>
-        <p>Praktické reklamní předměty s vaším logem. Malé detaily, které budují značku.</p>
-        <a href="#poptavka">Více →</a>
-      </article>
-
-    </div>
-  </div>
+<section class="page service-page" id="page-cedule">
+<div class="service-stage">
+<div class="service-grid wrap">
+<div class="service-copy">
+<div class="mini-title"><span></span>REKLAMNÍ ZNAČENÍ</div>
+<h1>Reklamní značení</h1>
+<p class="service-lead">Reklamní značení pro firmy a provozovny – cedule, štíty, informační tabule a další prvky. Připravím grafiku, zvolím vhodný materiál a vyrobím hotové řešení.</p>
+<div class="benefits"><div class="benefit"><div class="bicon">▣</div><div><b>Firemní cedule a štíty</b><span>PVC, dibond a další materiály podle konkrétního použití</span></div></div><div class="benefit"><div class="bicon">◇</div><div><b>Informační tabule</b><span>Orientační, provozní i prezentační značení</span></div></div><div class="benefit"><div class="bicon">▤</div><div><b>Grafická příprava</b><span>Návrh, sazba a úprava dodaných podkladů</span></div></div><div class="benefit"><div class="bicon">◷</div><div><b>Výroba na míru</b><span>Rozměr, provedení a dokončení podle konkrétní zakázky</span></div></div></div>
+</div>
+<div class="service-visual">
+<img alt="Reklamní značení – klíčenky NEWIA" class="carousel-main" src="assets/webp-09.webp"/>
+</div>
+</div>
+<div class="thumbbar">
+<button aria-label="Předchozí" class="roundarr" data-dir="-1">←</button>
+<div class="thumbs"><img alt="Reklamní značení – klíčenky NEWIA" data-slide="0" role="button" src="assets/webp-09.webp" tabindex="0"/><img alt="Reklamní značení – obrázek z hlavní karty" data-slide="1" role="button" src="assets/webp-03.webp" tabindex="0"/><img alt="Axis Optik – reklamní značení provozovny" src="assets/jpg-06.jpg"/><img alt="Reklamní značení – stuhy a medaile" src="assets/jpg-07.jpg"/><img alt="Agroslužby Šumava – potisk triček" src="assets/jpg-08.jpg"/></div>
+<button aria-label="Další" class="roundarr" data-dir="1">→</button>
+</div>
+<div class="service-footer-row wrap">
+<button class="service-cta" onclick="goQuote('Reklamní značení')"><span>▣</span> POPTAT REKLAMNÍ ZNAČENÍ <b>→</b></button>
+<div class="vline"></div>
+<div class="service-quote">„Dobré reklamní značení musí být přehledné, čitelné a na první pohled profesionální.“</div>
+<div class="signature"><img alt="Miloš Bušek – podpis" src="assets/png-01.png"/></div>
+<div class="shopbox">▣ <span>Vhodné pro firmy, provozovny, kanceláře a informační systémy</span></div>
+</div>
+</div>
 </section>
-
-<section class="process">
-  <div class="container process-grid">
-
-    <div class="process-title">
-      <h2>Jak spolupráce probíhá</h2>
-      <p>Jednoduše a bez zbytečných složitostí.</p>
-    </div>
-
-    <ol>
-      <li><b>01</b><span>Řeknete mi, co potřebujete nebo jaký máte cíl</span></li>
-      <li><b>02</b><span>Navrhnu řešení</span></li>
-      <li><b>03</b><span>Připravím grafiku a vizuál</span></li>
-      <li><b>04</b><span>Vyrobím nebo zajistím tisk</span></li>
-      <li><b>05</b><span>Předám nebo nainstaluji</span></li>
-    </ol>
-
-  </div>
+<section class="page service-page" id="page-bannery">
+<div class="service-stage">
+<div class="service-grid wrap">
+<div class="service-copy">
+<div class="mini-title"><span></span>BANNERY A PLACHTY</div>
+<h1>Bannery a plachty</h1>
+<p class="service-lead">Velkoformátové bannery a reklamní plachty pro provozovny, akce, ploty i krátkodobé kampaně. Výrazný tisk, dokončení a oka připravená k instalaci.</p>
+<div class="benefits"><div class="benefit"><div class="bicon">▱</div><div><b>Velkoformátový tisk</b><span>Výrazné barvy a dobrá čitelnost i z větší vzdálenosti</span></div></div><div class="benefit"><div class="bicon">⊙</div><div><b>Oka a dokončení</b><span>Hotový banner připravený rovnou k zavěšení</span></div></div><div class="benefit"><div class="bicon">☂</div><div><b>Interiér i exteriér</b><span>Materiál zvolený podle místa a délky použití</span></div></div><div class="benefit"><div class="bicon">◷</div><div><b>Rozměr na míru</b><span>Od menších poutačů po velké reklamní plochy</span></div></div></div>
+</div>
+<div class="service-visual">
+<img alt="bannery – ukázka realizace 2" class="carousel-main" src="assets/webp-10.webp"/>
+</div>
+</div>
+<div class="thumbbar">
+<button aria-label="Předchozí" class="roundarr" data-dir="-1">←</button>
+<div class="thumbs"><img alt="bannery – ukázka realizace 2" data-slide="0" role="button" src="assets/webp-10.webp" tabindex="0"/><img alt="Banner – Zahradní centrum" data-slide="1" role="button" src="assets/jpg-09.jpg" tabindex="0"/><img alt="Bannery a plachty – obrázek z hlavní karty" data-slide="3" role="button" src="assets/webp-04.webp" tabindex="0"/><img alt="Banner – výroba čalouněného nábytku" src="assets/jpg-10.jpg"/><img alt="Kdynium – reklamní plachta" src="assets/jpg-11.jpg"/></div>
+<button aria-label="Další" class="roundarr" data-dir="1">→</button>
+</div>
+<div class="service-footer-row wrap">
+<button class="service-cta" onclick="goQuote('Bannery a plachty')"><span>▣</span> POPTAT BANNERY A PLACHTY <b>→</b></button>
+<div class="vline"></div>
+<div class="service-quote">„U banneru je nejdůležitější čitelnost, kontrast a správná velikost grafiky.“</div>
+<div class="signature"><img alt="Miloš Bušek – podpis" src="assets/png-01.png"/></div>
+<div class="shopbox">▣ <span>Vhodné pro akce, ploty, provozovny, sport a venkovní reklamu</span></div>
+</div>
+</div>
 </section>
-
-<section class="realizations" id="realizace">
-  <div class="container realization-grid">
-
-    <div class="real-title">
-      <h2>Realizace,<br>které mluví za vše</h2>
-      <a href="#poptavka" class="btn btn-gradient">Zobrazit další realizace</a>
-    </div>
-
-    <article class="real-card">
-      <img src="images/ref-van.png" alt="Polep vozidla">
-      <p>Polep vozidla pro stavební firmu</p>
-    </article>
-
-    <article class="real-card">
-      <img src="images/ref-sign.png" alt="Označení provozovny">
-      <p>Označení provozovny pro účetní kancelář</p>
-    </article>
-
-    <article class="real-card">
-      <img src="images/ref-banner.png" alt="Reklamní banner">
-      <p>Reklamní banner pro pneuservis</p>
-    </article>
-
-    <article class="real-card">
-      <img src="images/ref-products.png" alt="Produktová fotografie">
-      <p>Produktová fotografie pro e-shop</p>
-    </article>
-
-    <article class="real-card">
-      <img src="images/ref-flyers.png" alt="Tisk letáků">
-      <p>Tisk letáků pro restauraci</p>
-    </article>
-
-  </div>
+<section class="page service-page" id="page-polepy">
+<div class="service-stage">
+<div class="service-grid wrap">
+<div class="service-copy">
+<div class="mini-title"><span></span>POLEPY</div>
+<h1>Polepy</h1>
+<p class="service-lead">Polepy automobilů, výloh, desek a dalších hladkých ploch. Od jednoduchých nápisů až po tištěnou reklamní grafiku připravenou na míru.</p>
+<div class="benefits"><div class="benefit"><div class="bicon">▱</div><div><b>Polepy automobilů</b><span>Firemní označení, kontakty, loga a reklamní grafika</span></div></div><div class="benefit"><div class="bicon">▣</div><div><b>Výlohy a provozovny</b><span>Řezaná fólie i plnobarevný tisk</span></div></div><div class="benefit"><div class="bicon">◇</div><div><b>Kvalitní fólie</b><span>Materiál podle podkladu, životnosti a způsobu použití</span></div></div><div class="benefit"><div class="bicon">◷</div><div><b>Individuální řešení</b><span>Grafiku i provedení řešíte přímo se mnou</span></div></div></div>
+</div>
+<div class="service-visual">
+<img alt="Polepy" class="carousel-main" src="assets/jpg-12.jpg"/>
+</div>
+</div>
+<div class="thumbbar">
+<button aria-label="Předchozí" class="roundarr" data-dir="-1">←</button>
+<div class="thumbs"><img alt="Polep automobilu – Scania" data-slide="0" role="button" src="assets/jpg-12.jpg" tabindex="0"/><img alt="Polep automobilu – DOOSAN" data-slide="1" role="button" src="assets/jpg-13.jpg" tabindex="0"/><img alt="Polep automobilu – damax" data-slide="2" role="button" src="assets/jpg-14.jpg" tabindex="0"/><img alt="Polep provozovny – Oční centrum Domažlice" data-slide="3" role="button" src="assets/jpg-15.jpg" tabindex="0"/><img alt="Polepy – obrázek z hlavní karty" data-slide="4" role="button" src="assets/webp-05.webp" tabindex="0"/></div>
+<button aria-label="Další" class="roundarr" data-dir="1">→</button>
+</div>
+<div class="service-footer-row wrap">
+<button class="service-cta" onclick="goQuote('Polepy')"><span>▣</span> POPTAT POLEP <b>→</b></button>
+<div class="vline"></div>
+<div class="service-quote">„Dobře navržený polep pracuje pro firmu každý den, i když auto jen stojí.“</div>
+<div class="signature"><img alt="Miloš Bušek – podpis" src="assets/png-01.png"/></div>
+<div class="shopbox">▣ <span>Vhodné pro firemní auta, výlohy, desky a reklamní plochy</span></div>
+</div>
+</div>
 </section>
-
-<section class="trust" id="omne">
-  <div class="container trust-grid">
-
-    <article><span>✓</span><strong>Více než 20 let zkušeností</strong></article>
-    <article><span>✦</span><strong>Grafika, fotografie a výroba pod jednou střechou</strong></article>
-    <article><span>⚙</span><strong>Vlastní technologie a kvalitní materiály</strong></article>
-    <article><span>◎</span><strong>Osobní přístup – jednáte přímo se mnou</strong></article>
-    <article><span>✓</span><strong>Spolehlivost a dodržení termínů</strong></article>
-
-  </div>
+<section class="page service-page" id="page-produkt">
+<div class="service-stage">
+<div class="service-grid wrap">
+<div class="service-copy">
+<div class="mini-title"><span></span>PRODUKTOVÁ FOTOGRAFIE</div>
+<h1>Vaše produkty<br/><em>v nejlepším světle</em></h1>
+<p class="service-lead">Profesionální produktová fotografie pro e-shopy, katalogy a reklamu. Čisté pozadí, přesné detaily a věrné barvy, aby produkt zaujal na první pohled.</p>
+<div class="benefits"><div class="benefit"><div class="bicon">📷</div><div><b>Profesionální vybavení</b><span>Sony Alpha, studiová světla</span></div></div><div class="benefit"><div class="bicon">◇</div><div><b>Detailní záběry</b><span>Ostré snímky a věrné podání barev</span></div></div><div class="benefit"><div class="bicon">▣</div><div><b>Fotky připravené pro web</b><span>Optimalizované rozměry a vhodné formáty</span></div></div><div class="benefit"><div class="bicon">◷</div><div><b>Rychlé dodání</b><span>Termín podle počtu produktů a rozsahu úprav</span></div></div></div>
+</div>
+<div class="service-visual">
+<img alt="Produktová fotografie – zelené brýle" class="carousel-main" src="assets/webp-11.webp"/>
+</div>
+</div>
+<div class="thumbbar">
+<button aria-label="Předchozí" class="roundarr" data-dir="-1">←</button>
+<div class="thumbs"><img alt="Produktová fotografie – zelené brýle" data-slide="0" role="button" src="assets/webp-11.webp" tabindex="0"/><img alt="Produktová fotografie – obrázek z hlavní karty" data-slide="1" role="button" src="assets/webp-06.webp" tabindex="0"/><img alt="Produktová fotografie – cibule a zelenina" data-slide="2" role="button" src="assets/jpg-16.jpg" tabindex="0"/><img alt="Produktová fotografie – zelený talíř s jídlem" data-slide="3" role="button" src="assets/jpg-17.jpg" tabindex="0"/><img alt="Produktová fotografie – detail stroje NEWIA" data-slide="4" role="button" src="assets/jpg-18.jpg" tabindex="0"/></div>
+<button aria-label="Další" class="roundarr" data-dir="1">→</button>
+</div>
+<div class="service-footer-row wrap">
+<button class="service-cta" onclick="goQuote('Produktová fotografie')"><span>▣</span> POPTAT PRODUKTOVOU FOTOGRAFII <b>→</b></button>
+<div class="vline"></div>
+<div class="service-quote">„Kvalitní fotografie prodává. Postarám se, aby vaše produkty vypadaly skvěle.“</div>
+<div class="signature"><img alt="Miloš Bušek – podpis" src="assets/png-01.png"/></div>
+<div class="shopbox">▣ <span>Vhodné pro e-shopy, katalogy, weby a reklamní materiály</span></div>
+</div>
+</div>
 </section>
-
-<section class="final-cta" id="kontakt">
-  <div class="container final-grid">
-
-    <div>
-      <h2>Chcete <span>být vidět?</span></h2>
-      <p>Napište mi, co potřebujete označit, vytisknout nebo propagovat.</p>
-    </div>
-
-    <div class="contact-info">
-      <a href="tel:+420728551668">728 551 668</a>
-      <a href="mailto:reklama@milosbusek.cz">reklama@milosbusek.cz</a>
-    </div>
-
-    <a href="#poptavka" class="btn btn-gradient">Poptat nabídku →</a>
-
-  </div>
+<section class="page service-page" id="page-grafika">
+<div class="service-stage">
+<div class="service-grid wrap">
+<div class="service-copy">
+<div class="mini-title"><span></span>GRAFIKA A TISK</div>
+<h1>Grafika a tisk</h1>
+<p class="service-lead">Grafická příprava a tisk plakátů, letáků, vizitek a dalších reklamních tiskovin. Od úpravy dodaných dat až po hotový vytištěný materiál.</p>
+<div class="benefits"><div class="benefit"><div class="bicon">✎</div><div><b>Grafická příprava</b><span>Sazba, úprava podkladů a příprava tiskových dat</span></div></div><div class="benefit"><div class="bicon">▤</div><div><b>Plakáty a tiskoviny</b><span>Malé formáty i velkoformátový tisk</span></div></div><div class="benefit"><div class="bicon">✓</div><div><b>Kontrola dat</b><span>Rozlišení, spadávky, rozměry a připravenost k tisku</span></div></div><div class="benefit"><div class="bicon">◷</div><div><b>Vše na jednom místě</b><span>Grafika, tisk, řezání i dokončení zakázky</span></div></div></div>
+</div>
+<div class="service-visual">
+<img alt="Grafika a tisk – tiskárna Roland s vyjetým bannerem" class="carousel-main" src="assets/jpg-19.jpg"/>
+</div>
+</div>
+<div class="thumbbar">
+<button aria-label="Předchozí" class="roundarr" data-dir="-1">←</button>
+<div class="thumbs"><img alt="Grafika a tisk – tiskárna Roland s vyjetým bannerem" data-slide="0" role="button" src="assets/jpg-19.jpg" tabindex="0"/><img alt="Grafika a tisk – plakát Axis Optik Jedno sklo zdarma" data-slide="2" role="button" src="assets/jpg-20.jpg" tabindex="0"/><img alt="Grafika a tisk – plakát Axis Optik Měření zraku" data-slide="3" role="button" src="assets/jpg-21.jpg" tabindex="0"/><img alt="Grafika a tisk – plakáty Myosmart" data-slide="4" role="button" src="assets/jpg-01.jpg" tabindex="0"/><img alt="Grafika a tisk – plakáty Systane" data-slide="5" role="button" src="assets/jpg-22.jpg" tabindex="0"/></div>
+<button aria-label="Další" class="roundarr" data-dir="1">→</button>
+</div>
+<div class="service-footer-row wrap">
+<button class="service-cta" onclick="goQuote('Grafika a tisk')"><span>▣</span> POPTAT GRAFIKU A TISK <b>→</b></button>
+<div class="vline"></div>
+<div class="service-quote">„Dobrá grafika musí být nejen hezká, ale hlavně čitelná a funkční v reálném použití.“</div>
+<div class="signature"><img alt="Miloš Bušek – podpis" src="assets/png-01.png"/></div>
+<div class="shopbox">▣ <span>Vhodné pro plakáty, letáky, vizitky a firemní tiskoviny</span></div>
+</div>
+</div>
 </section>
-
-<section class="quote-form" id="poptavka">
-  <div class="container form-grid">
-
-    <div>
-      <h2>Nezávazná poptávka</h2>
-      <p>Pošlete mi pár informací a ozvu se vám zpět co nejdříve.</p>
-    </div>
-
-    <form action="mailto:reklama@milosbusek.cz" method="post" enctype="text/plain">
-      <input type="text" name="jmeno" placeholder="Vaše jméno" required>
-      <input type="email" name="email" placeholder="E-mail" required>
-      <input type="tel" name="telefon" placeholder="Telefon">
-      <textarea name="zprava" rows="5" placeholder="Co potřebujete?" required></textarea>
-      <button type="submit" class="btn btn-gradient">Odeslat poptávku →</button>
-    </form>
-
-  </div>
-</section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container footer-grid">
-
-    <div>
-      <img src="images/logo-horizontal.png" alt="Miloš Bušek logo">
-      <p>Reklama | Grafika | Tisk | Fotografie</p>
-    </div>
-
-    <nav>
-      <a href="#uvod">Úvod</a>
-      <a href="#sluzby">Služby</a>
-      <a href="#realizace">Realizace</a>
-      <a href="#omne">O mně</a>
-      <a href="#kontakt">Kontakt</a>
-    </nav>
-
-    <p>© 2025 Miloš Bušek</p>
-
-  </div>
-</footer>
-
 <script>
-  const menuBtn = document.getElementById('menuBtn');
-  const nav = document.getElementById('nav');
-  const navLinks = document.querySelectorAll('.nav a');
-
-  if (menuBtn) {
-    menuBtn.addEventListener('click', () => {
-      nav.classList.toggle('open');
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function scrollSectionNice(id){
+  if(id === 'kontakt' && window.innerWidth > 900){
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
     });
+    return;
+  }
+  const el = document.getElementById(id);
+  if(!el) return;
+  const header = document.querySelector('header');
+  const headerH = header ? header.getBoundingClientRect().height : 103;
+  const extraGap = 22;
+  const y = el.getBoundingClientRect().top + window.pageYOffset - headerH - extraGap;
+  window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+}
+function goHome(id){
+  showPage('home');
+  setTimeout(()=>scrollSectionNice(id),40);
+}
+function goQuote(service){
+  showPage('home');
+  setTimeout(()=>{
+    document.getElementById('service').value=service;
+    scrollSectionNice('poptavka');
+  },50);
+}
+
+
+function initCarousels(){
+  document.querySelectorAll('.service-page').forEach(function(page){
+    const main = page.querySelector('.carousel-main');
+    const thumbs = Array.from(page.querySelectorAll('.thumbs img')).slice(0,5);
+    const arrows = page.querySelectorAll('.roundarr');
+    if(!main || !thumbs.length) return;
+
+    let index = 0;
+    let timer = null;
+
+    function show(i){
+      index = (i + thumbs.length) % thumbs.length;
+      main.classList.add('is-changing');
+      setTimeout(function(){
+        main.src = thumbs[index].src;
+        main.alt = thumbs[index].alt || main.alt;
+        thumbs.forEach((t,n)=>t.classList.toggle('active-thumb', n===index));
+        main.classList.remove('is-changing');
+      },120);
+    }
+
+    function restart(){
+      if(timer) clearInterval(timer);
+      timer = setInterval(function(){ show(index+1); }, 4200);
+    }
+
+    thumbs.forEach(function(t,i){
+      t.addEventListener('click', function(){ show(i); restart(); });
+      t.addEventListener('keydown', function(e){
+        if(e.key==='Enter' || e.key===' '){ e.preventDefault(); show(i); restart(); }
+      });
+    });
+
+    arrows.forEach(function(a){
+      a.addEventListener('click', function(){
+        show(index + Number(a.dataset.dir || 1));
+        restart();
+      });
+    });
+
+    page.addEventListener('mouseenter', function(){ if(timer) clearInterval(timer); });
+    page.addEventListener('mouseleave', restart);
+
+    show(0);
+    restart();
+  });
+}
+document.addEventListener('DOMContentLoaded', initCarousels);
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const btn = document.querySelector('.mobile-menu-btn');
+  const menu = document.querySelector('.mobile-nav');
+  if(!btn || !menu) return;
+
+  function closeMobileMenu(){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-hidden','true');
+    btn.textContent='☰';
   }
 
-  function setActiveLink() {
-    const hash = window.location.hash || '#uvod';
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    const open = !menu.classList.contains('open');
+    menu.classList.toggle('open', open);
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+    btn.textContent = open ? '×' : '☰';
+  });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-
-      if (link.getAttribute('href') === hash) {
-        link.classList.add('active');
-      }
-
-      if (hash === '#poptavka' && link.getAttribute('href') === '#kontakt') {
-        link.classList.add('active');
-      }
-    });
-  }
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.forEach(item => item.classList.remove('active'));
-      link.classList.add('active');
-      nav.classList.remove('open');
+  menu.querySelectorAll('[data-target]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      const target = this.dataset.target;
+      closeMobileMenu();
+      goHome(target);
     });
   });
 
-  window.addEventListener('hashchange', setActiveLink);
-  window.addEventListener('load', setActiveLink);
-</script>
+  document.addEventListener('click', function(e){
+    if(menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn){
+      closeMobileMenu();
+    }
+  });
 
-</body>
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 900) closeMobileMenu();
+  });
+});
+</script></body>
 </html>
