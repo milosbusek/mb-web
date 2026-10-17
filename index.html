@@ -469,6 +469,12 @@ html{scroll-padding-top:125px!important;}
     z-index:9998!important;
   }
 }
+
+/* MB-web-41: Na mobilu zobrazit aktuální a následující náhled. */
+@media(max-width:650px){
+  .service-page .thumbs img{display:none!important}
+  .service-page .thumbs img.mobile-visible{display:block!important}
+}
 </style></head>
 <body>
 <header>
@@ -785,7 +791,10 @@ function initCarousels(){
       setTimeout(function(){
         main.src = thumbs[index].src;
         main.alt = thumbs[index].alt || main.alt;
-        thumbs.forEach((t,n)=>t.classList.toggle('active-thumb', n===index));
+        thumbs.forEach((t,n)=>{
+          t.classList.toggle('active-thumb', n===index);
+          t.classList.toggle('mobile-visible', n===index || n===(index+1)%thumbs.length);
+        });
         main.classList.remove('is-changing');
       },120);
     }
