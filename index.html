@@ -575,14 +575,14 @@ html{scroll-padding-top:125px!important;}
 </article>
 </div></div></section>
 <section class="section formsec" id="poptavka"><div class="wrap formgrid"><div><div class="eyebrow">NEZÁVAZNÁ POPTÁVKA</div><h2>Pošlete zadání.<br/>Ozvu se s cenou.</h2><p>Stačí rozměr, množství a stručný popis. Přiložit můžete i grafiku, fotografii nebo náčrt.</p></div>
-<form class="formcard" onsubmit="event.preventDefault();document.getElementById('success').style.display='block'"><div class="fields">
-<div class="field"><label>JMÉNO / FIRMA</label><input placeholder="Jméno nebo firma" required=""/></div>
-<div class="field"><label>TELEFON / E-MAIL</label><input placeholder="Kontakt" required=""/></div>
-<div class="field"><label>SLUŽBA</label><select id="service"><option>Vyberte službu</option><option>Samolepky a etikety</option><option>Reklamní značení</option><option>Bannery a plachty</option><option>Polepy</option><option>Produktová fotografie</option><option>Grafika a tisk</option></select></div>
-<div class="field"><label>ROZMĚR / MNOŽSTVÍ</label><input placeholder="Např. 500 ks, 70 × 100 mm"/></div>
-<div class="field full"><label>POPIS ZAKÁZKY</label><textarea placeholder="Co potřebujete vyrobit?"></textarea></div>
-<div class="field full"><label>PŘÍLOHA</label><input type="file"/></div>
-</div><button class="cta" style="margin-top:15px" type="submit">ODESLAT POPTÁVKU →</button><div class="success" id="success">Děkuji za poptávku. Ozvu se vám co nejdříve.</div></form></div></section>
+<form class="formcard" id="inquiry-form" action="https://formspree.io/f/mvkyzqvj" method="POST" enctype="multipart/form-data"><div class="fields">
+<div class="field"><label>JMÉNO / FIRMA</label><input name="jmeno_firma" autocomplete="name" placeholder="Jméno nebo firma" required=""/></div>
+<div class="field"><label>TELEFON / E-MAIL</label><input name="kontakt" placeholder="Kontakt" required=""/></div>
+<div class="field"><label>SLUŽBA</label><select id="service" name="sluzba" required><option value="" selected disabled>Vyberte službu</option><option>Samolepky a etikety</option><option>Reklamní značení</option><option>Bannery a plachty</option><option>Polepy</option><option>Produktová fotografie</option><option>Grafika a tisk</option></select></div>
+<div class="field"><label>ROZMĚR / MNOŽSTVÍ</label><input name="rozmer_mnozstvi" placeholder="Např. 500 ks, 70 × 100 mm"/></div>
+<div class="field full"><label>POPIS ZAKÁZKY</label><textarea name="popis_zakazky" placeholder="Co potřebujete vyrobit?"></textarea></div>
+<div class="field full"><label>PŘÍLOHA</label><input type="file" name="attachment"/><small style="color:#667069">Příloha se odešle pouze tehdy, pokud ji podporuje nastavený tarif Formspree.</small></div>
+</div><button class="cta" style="margin-top:15px" type="submit">ODESLAT POPTÁVKU →</button><div class="success" id="success" role="status" aria-live="polite">Děkuji za poptávku. Ozvu se vám co nejdříve.</div><div id="form-error" role="alert" style="display:none;margin-top:12px;color:#a52626;font-weight:700">Poptávku se nepodařilo odeslat. Zkuste to znovu nebo napište na milosbusek@gmail.com.</div></form></div></section>
 <section class="section contact" id="kontakt"><div class="wrap contactgrid"><div><h3>Miloš Bušek</h3><p>Reklamní výroba<br/>IČ: 48346748</p></div><div><h3>Kontakt</h3><p>☎ 728 551 668<br/>✉ milosbusek@gmail.com<br/>www.milosbusek.cz</p></div><div><h3>Provozovna</h3><p>Luční 659<br/>345 06 Kdyně</p></div></div></section>
 <footer><div class="wrap">© 2026 Miloš Bušek · Reklamní výroba</div></footer>
 </section>
@@ -878,5 +878,39 @@ document.addEventListener('DOMContentLoaded', function(){
     if(window.innerWidth > 900) closeMobileMenu();
   });
 });
-</script></body>
+</script><script>
+/* Odesílání poptávek: úspěch zobrazit pouze po potvrzení služby Formspree. */
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('inquiry-form');
+  if (!form) return;
+  const button = form.querySelector('button[type="submit"]');
+  const success = document.getElementById('success');
+  const error = document.getElementById('form-error');
+  form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    success.style.display = 'none';
+    error.style.display = 'none';
+    button.disabled = true;
+    button.textContent = 'ODESÍLÁM…';
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (!response.ok) throw new Error('Formspree HTTP ' + response.status);
+      form.reset();
+      success.style.display = 'block';
+    } catch (err) {
+      console.error('Chyba při odesílání poptávky:', err);
+      error.style.display = 'block';
+    } finally {
+      button.disabled = false;
+      button.textContent = 'ODESLAT POPTÁVKU →';
+    }
+  });
+});
+</script>
+</body>
 </html>
