@@ -268,7 +268,8 @@ html{scroll-padding-top:125px!important;}
     border-bottom:1px solid rgba(255,255,255,.10);
   }
   .mobile-nav > a:active,
-  .mobile-nav > a:hover{
+  .mobile-nav > a:hover,
+  .mobile-nav > a.active{
     color:#8ddd00;
   }
   .mobile-nav-contact{
@@ -502,8 +503,8 @@ html{scroll-padding-top:125px!important;}
 <div><div class="brandname">MILOŠ <b>BUŠEK</b></div><div class="brandsub">REKLAMNÍ VÝROBA</div></div>
 </div>
 <nav>
-<a href="#home" onclick="goHome('home'); return false;">Domů</a>
-<a class="active" href="#sluzby" onclick="goHome('sluzby'); return false;">Služby</a>
+<a class="active" href="#home" onclick="goHome('home'); return false;">Domů</a>
+<a href="#sluzby" onclick="goHome('sluzby'); return false;">Služby</a>
 <a href="#reference" onclick="goHome('reference'); return false;">Reference</a>
 <a href="#onas" onclick="goHome('onas'); return false;">O nás</a>
 <a href="#poptavka" onclick="goHome('poptavka'); return false;">Poptávka</a>
@@ -765,9 +766,18 @@ html{scroll-padding-top:125px!important;}
 </div>
 </section>
 <script>
+function setNavActive(id){
+  document.querySelectorAll('header nav a[href^="#"]').forEach(function(link){
+    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+  });
+  document.querySelectorAll('.mobile-nav a[data-target]').forEach(function(link){
+    link.classList.toggle('active', link.dataset.target === id);
+  });
+}
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
+  setNavActive(id === 'home' ? 'home' : 'sluzby');
   window.scrollTo({top:0,behavior:'instant'});
 }
 function scrollSectionNice(id){
@@ -788,10 +798,12 @@ function scrollSectionNice(id){
 }
 function goHome(id){
   showPage('home');
+  setNavActive(id);
   setTimeout(()=>scrollSectionNice(id),40);
 }
 function goQuote(service){
   showPage('home');
+  setNavActive('poptavka');
   setTimeout(()=>{
     document.getElementById('service').value=service;
     scrollSectionNice('poptavka');
