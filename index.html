@@ -2,6 +2,7 @@
 
 <html lang="cs">
 <head>
+<base href="/">
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Miloš Bušek | Reklamní výroba, tisk a polepy – Kdyně</title>
@@ -845,6 +846,8 @@ function setNavActive(id){
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
+  const route = ({home:'/',samolepky:'/samolepky/',cedule:'/reklamni-cedule/',bannery:'/bannery/',polepy:'/polepy/',produkt:'/produktova-fotografie/',grafika:'/grafika-a-tisk/'})[id];
+  if(route && location.pathname !== route) history.pushState({page:id},'',route);
   setNavActive(id === 'home' ? 'home' : 'sluzby');
   window.scrollTo({top:0,behavior:'instant'});
 }
@@ -930,6 +933,7 @@ function initCarousels(){
   });
 }
 document.addEventListener('DOMContentLoaded', initCarousels);
+window.addEventListener('popstate',function(){const routes={'/samolepky/':'samolepky','/reklamni-cedule/':'cedule','/bannery/':'bannery','/polepy/':'polepy','/produktova-fotografie/':'produkt','/grafika-a-tisk/':'grafika'};const id=routes[location.pathname]||'home';document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id==='page-'+id));setNavActive(id==='home'?'home':'sluzby');});
 </script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
