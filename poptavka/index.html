@@ -622,9 +622,14 @@ document.addEventListener('DOMContentLoaded', function () {
     } catch (err) {
       console.error('Chyba při odesílání poptávky:', err);
       error.style.display = 'block';
+      return;
     } finally {
       button.disabled = false;
       button.textContent = 'ODESLAT POPTÁVKU →';
+    }
+
+    if (typeof window.gtag === 'function' && window['ga-disable-G-11TC9JGK9T'] === false) {
+      window.gtag('event', 'generate_lead');
     }
   });
 });
