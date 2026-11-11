@@ -49,6 +49,14 @@
     if (link.protocol === 'tel:') window.gtag('event', 'click_phone');
     if (link.protocol === 'mailto:') window.gtag('event', 'click_email');
   });
+  function trackPortfolioActivation(event) {
+    if (choice !== 'granted' || !loaded || window['ga-disable-' + ID]) return;
+    if (event.type === 'keydown' && event.key !== 'Enter') return;
+    const card = event.target instanceof Element && event.target.closest('#reference .service-card');
+    if (card) window.gtag('event', 'click_portfolio');
+  }
+  document.addEventListener('click', trackPortfolioActivation, true);
+  document.addEventListener('keydown', trackPortfolioActivation, true);
   function clearCookies() {
     const domains = ['', location.hostname, '.' + location.hostname, 'milosbusek.cz', '.milosbusek.cz'];
     document.cookie.split(';').forEach(function (entry) {
