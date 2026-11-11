@@ -42,6 +42,13 @@
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID;
     document.head.appendChild(script);
   }
+  document.addEventListener('click', function (event) {
+    if (choice !== 'granted' || !loaded || window['ga-disable-' + ID]) return;
+    const link = event.target instanceof Element && event.target.closest('a[href]');
+    if (!link) return;
+    if (link.protocol === 'tel:') window.gtag('event', 'click_phone');
+    if (link.protocol === 'mailto:') window.gtag('event', 'click_email');
+  });
   function clearCookies() {
     const domains = ['', location.hostname, '.' + location.hostname, 'milosbusek.cz', '.milosbusek.cz'];
     document.cookie.split(';').forEach(function (entry) {
