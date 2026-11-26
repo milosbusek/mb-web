@@ -589,7 +589,7 @@ header .logo img{display:block!important;width:100%!important;height:100%!import
 <form class="formcard" id="inquiry-form" action="https://formspree.io/f/mvkzyqvj" method="POST"><div class="fields">
 <div class="field"><label>JMÉNO / FIRMA</label><input name="jmeno_firma" autocomplete="name" placeholder="Jméno nebo firma" required=""/></div>
 <div class="field"><label>TELEFON / E-MAIL</label><input name="kontakt" placeholder="Kontakt" required=""/></div>
-<div class="field"><label for="service">SLUŽBA</label><select id="service" name="sluzba" required><option value="" selected disabled>Vyberte službu</option><option>Samolepky a etikety</option><option>Reklamní značení</option><option>Bannery a plachty</option><option>Polepy</option><option>Produktová fotografie</option><option>Grafika a tisk</option></select></div>
+<div class="field"><label for="service">SLUŽBA</label><select id="service" name="sluzba" required><option value="" selected disabled>Vyberte službu</option><option>Samolepky a etikety</option><option>Reklamní značení</option><option>Bannery a plachty</option><option>Polepy</option><option>Produktová fotografie</option><option>Grafika a tisk</option><option>Razítka</option></select></div>
 <div class="field"><label>ROZMĚR / MNOŽSTVÍ</label><input name="rozmer_mnozstvi" placeholder="Např. 500 ks, 70 × 100 mm"/></div>
 <div class="field full"><label>POPIS ZAKÁZKY</label><textarea name="popis_zakazky" placeholder="Co potřebujete vyrobit?"></textarea></div>
 
@@ -600,6 +600,10 @@ header .logo img{display:block!important;width:100%!important;height:100%!import
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById('inquiry-form');
   if (!form) return;
+  const service = form.elements.namedItem('sluzba');
+  if (new URLSearchParams(window.location.search).get('sluzba') === 'razitka') {
+    service.value = 'Razítka';
+  }
   const button = form.querySelector('button[type="submit"]');
   const success = document.getElementById('success');
   const error = document.getElementById('form-error');
